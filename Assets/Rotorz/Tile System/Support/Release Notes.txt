@@ -1,0 +1,1693 @@
+v2.4.1
+===============================================================================
+
+## Upgrade Notes
+
+This asset now generates its own asset preview cache "Library/Rotorz/PreviewCache"
+to workaround several usability issues that exist in Unity 5. The preview cache
+is placed into this folder so that it is excluded from source control.
+
+As a bonus this means that the brush preview assets (the ones whose file names
+start with "z_") no longer need to be generated inside the directory structure
+of your project's "Assets" folder (typically "Assets/TileBrushes/Editor"
+or "Assets/Rotorz/User Data/Tile System/Brushes/Editor").
+
+This means that you can remove those preview assets since they are no longer
+used by Rotorz Tile System.
+
+
+## New Features
+
+ - "Assets/Rotorz" folder can now be moved to a different sub-folder (for
+   instance, "Assets/ThirdParty/Rotorz" inside your project; but the directory
+   structure inside the "Rotorz" folder remains sensitive.
+
+ - Designer for brush and tileset assets is now shown upon double-clicking the
+   asset files using the project window.
+
+ - Added 'Refresh Preview' command to the context menu of brushes.
+
+ - Added 'Clear Preview Cache' command to the main tool menu.
+
+
+## Improvements
+
+ - Custom asset preview cache which works around usability issues in Unity 5
+   (a big thanks to Shawn White for assisting with this!):
+
+   * Asset previews were very dark after checking out projects from a repository.
+
+   * Asset previews were completely missing after importing assets from Unity
+     packages which was causing prefab previews to appear blank in the oriented
+     brush designer.
+
+   * Formerly this issue didn't apply to brush assets since they were not being
+     rendered with Unity's asset preview API (`Editor.RenderStaticPreview`).
+
+   * As a result of using `Editor.RenderStaticPreview` brush assets now have
+     thumbnails in project window.
+
+ - "Scene" palette window has been completely revamped.
+
+ - Replaced "RTS:" prefix of palette windows with an icon.
+
+ - Minor refinements to improve usability of editor GUI controls.
+
+ - Removed obsolete deprecated functionality.
+
+ - Reduced memory overhead of `Brush.RemapMaterial`.
+
+ - More precise version information in the "About" window; the commit hash can
+   now be revealed by clicking the version number.
+
+ - Brushes are now created in a "Brushes" folder instead of "TileBrushes" since
+   the naming convention is no longer relevant. The location for new brush and
+   tileset assets can be customized in project settings.
+
+ - Added a new property `PaintToolBase.SupportsPaintAroundExistingTiles` to
+   avoid a subtle issue with the fill tool.
+
+
+## Bug Fixes
+
+ - Custom cursors have been re-enabled for Unity 5 on OS X since Unity seem to
+   have resolved the issues that were introduced in Unity 5.
+
+ - Fixed `NullReferenceException` being thrown by `BrushListModel.CategorySet`
+   upon deserialization.
+
+ - 'Project Settings' asset is no longer overwritten if editor assembly importer
+   gets disabled by Unity.
+
+ - Brush previews are now drawn with the neutral orientation when available.
+
+ - Corrected issue where new coalesce group was added upon pressing a key; this
+   is only supposed to happen when the return key is pressed.
+
+ - Corrected issue where erase feature of fill tool was not functional when
+   "Paint Around Existing Tiles" is selected.
+
+ - Resolved issue in Unity 5 where brush listing isn't being maintained when
+   re-importing asset from a package.
+
+ - Resaved resource images as PNG24 because PNG8 no longer displays properly
+   due to bug in Unity 5.1 where transparency shows with ugly opaque colors.
+
+ - Added workaround for an error which occurs in Unity 5.1 since they have
+   renamed the "WinBtnCloseWin" style to "WinBtnClose".
+
+ - Corrected issue where Hat Guy character was behaving oddly in demo due to
+   how the behavior of the animator property 'Apply Root Motion' was altered
+   in Unity 5.
+
+ - Freshly painted tiles were destroyed at the end of the frame if their parent
+   chunk had been marked for destruction by the "Erase Empty Chunks" option.
+
+
+v2.4.0 (2015-03-27)
+===============================================================================
+
+## Upgrade Notes
+
+These files should be manually removed from existing projects when updating:
+
+ - Assets/Rotorz/Tile System/Editor/Upgrader
+ - Assets/Rotorz/Tile System/Editor/RtsBrushPropertyDrawer.cs
+ - Assets/Rotorz/Tile System/Editor/RtsBrushFieldDrawer.js
+ - Assets/Rotorz/Tile System/Scripts/RtsBrushPropertyAttribute.cs
+ - Assets/Rotorz/Tile System/Scripts/RtsBrushFieldAttribute.js
+ - Assets/Rotorz/Tile System/Support/Migration Guide from 1x.pdf
+
+
+## New Features
+
+ - 'Coalesce with border' property added to oriented brushes.
+
+ - Added new tileset shaders which are similar to Unity's sprite shaders except
+   allow for texture selection and do not support tinting. With the new lit
+   tileset shaders it is not necessary to use 'Add Procedural Normals'.
+
+ - Added new property 'Apply Simple Rotation' to tileset brushes which applies
+   simple tile rotation to attached prefab objects.
+
+ - Added new project wide settings asset which allows template materials to
+   be specified which are then used when creating new tilesets.
+
+ - Tile system presets are now saved as individual asset files instead of
+   inside an XML file. This means that they can now be edited using the
+   inspector and they can be scattered around project as desired. New presets
+   are placed inside the "Rotorz/User Data/Tile System/Presets" folder in the
+   "Assets" folder.
+
+ - Added user preference 'Hide scene view grid upon activating tool' which is
+   enabled by default.
+
+
+## Changes for Unity 5
+
+ - Runtime assembly has been split into two assemblies, following the same
+   convention that Unity have adopted for their UI.
+   
+   - "Rotorz/Tile System/Standalone/TileSystem.Runtime.dll" is used when you
+     build your game.
+
+   - "Rotorz/Tile System/TileSystem.Runtime.dll" is used when testing your game
+     in-editor.
+
+
+## Changes
+
+ - Flag and category data files are no longer stored in "Assets/TileBrushes"
+   because these have been migrated into the new project settings asset.
+
+ - 'Atlas Opaque' shader is no longer included in asset. This shouldn't break
+   existing projects since the shader will not be automatically deleted.
+
+ - 'Automatic' zoom mode now shows tileset brushes at their actual size.
+   Replaced 'Tileset' zoom mode with 'Best Fit' which allows tileset brush
+   previews to fill the available window space.
+
+ - Reorganized directory structure of asset so that demonstration assets are
+   easier to exclude.
+
+ - Ordering of "Chunk Width" and "Chunk Height" fields for consistency with
+   ordering of "Rows" and "Columns" fields.
+
+ - Empty orientations no longer cause an error; instead a warning is logged and
+   simply is no visual representation of the tile.
+
+ - Alpha blending is now selected by default when creating new tilesets.
+
+ - Removed `ActiveTile` and `ActiveTileIndex` properties from tile system class
+   and exposed similar properties from `ToolUtility`.
+
+ - `Preset` and `PresetManager` classes have been replaced with the new
+   `TileSystemPreset` and `TileSystemPresetUtility` classes which deal with the
+   new tile system preset assets.
+
+
+## Improvements
+
+ - Sorting layer properties are now also stored for tile system presets.
+
+ - Brush categories can now be reordered using the new project settings asset.
+
+ - The new unlit opaque and transparent tileset shaders are now used when
+   creating new tilesets.
+
+ - New overload `PaintingUtility.FloodFill(TileSystem, TileIndex, PaintingArgs, TileIndex[])`
+   which outputs a list of tile indices that were filled.
+
+ - Better exception handling to `PaintingUtility`.
+
+ - Added utility method `TileData.ToggleUserFlag`.
+
+ - Refined Hat Guy demonstration assets and replaced legacy animations with a
+   Mecanim animator.
+
+ - Added blender files for coin and stone platform demonstration objects.
+
+ - Updated demonstration objects 'Coin' and 'Stone Platform' so that they
+   work properly without selecting legacy mode.
+
+ - Updated references to methods which are marked as obsolete in Unity 5.
+
+ - Replaced custom asset preview cache with Unity's new API.
+
+ - Removed command 'Clear Preview Cache' from brush designer menu.
+
+ - Replaced labels "From" and "To" with a simple arrow graphic in material
+   mapper interface.
+
+
+## Bug Fixes
+
+ - Fixed rendering of tile system gizmos in Unity 5.
+
+ - Fixed brightness of brush previews in Unity 5.
+
+ - Removed redundant usage of reflection for accessing internal sorting layer
+   properties since they are no longer needed and break in Unity 5.
+
+ - Resolved issue where "Cell Size" could not be adjusted in tile system
+   inspector in Unity 5.
+
+ - Workaround a bug where usage of lhs == rhs doesn't always work in Unity 5.
+
+ - Meshes of inactive renderer components are no longer included in tile system
+   optimization.
+ 
+ - Picker tool mouse-down state no longer bleeds into the next tool when the
+   mouse is dragged slightly.
+
+ - Fixed asset name validation in brush creators (they were still checking for
+   legacy suffixes).
+
+
+v2.3.4 (2015-01-10)
+===============================================================================
+
+## Bug Fixes
+
+ - Resolved issue which occurs when used with recent releases where immediate
+   previews are not shown when using paint tools in editor.
+
+
+v2.3.3 (2014-11-11)
+===============================================================================
+
+## Improvements
+
+ - Exposed `TileIndex.EqualityComparer` which should be explicitly provided to
+   generic collections when using `TileIndex` as a key; as with dictionaries
+   and hash sets.
+
+## Bug Fixes
+
+ - Fixed exception on iOS when attempting to use PaintingUtility; was throwing
+   ExecutionEngineException.
+
+
+v2.3.2 (2014-10-08)
+===============================================================================
+
+## New Features
+
+ - Added sorting layer properties to tile system inspector to control
+   procedural tile mesh render order. This is useful for 2D games.
+
+ - Multiple coalesce groups can now be specified for brushes that support
+   automatic orientation.
+
+ - New events added to `PaintingUtility`; TilePainted, WillEraseTile and
+   ChunkCreated.
+
+ - Added new shortcut **Alt + Mouse Wheel** to adjust variation shifting.
+
+
+## Changes
+
+ - Event `Brush.TilePainted` is now obsolete. Please update your script(s) to
+   use the new `PaintingUtility.TilePainted` event instead.
+
+ - Renamed `Coalesce.Group` to `Coalesce.Groups` and `Coalesce.OwnAndGroup` to
+   `Coalesce.OwnAndGroups` to reflect new behavior. Please update your
+   script(s) accordingly.
+
+
+## Improvements
+
+ - Procedural mesh game object now inherits "Layer" of tile system game object.
+
+ - Added name to procedurally generated meshes so that they are easier to
+   locate in profiler.
+
+ - Variation randomization is more useful and intuitive when orientations
+   contain differing numbers of variations.
+
+ - Warning message is now presented when attempting to overwrite output files
+   with **Build Prefab...**.
+
+
+## Bug Fixes
+
+ - Tiles were not invalidated by `PaintingUtility` when changes were not
+   initially detected during painting phase.
+
+ - Regression where "All Categories" menu item was not highlighted when
+   selected.
+
+ - Double-point values were not properly formatted in JSON settings file for
+   some cultures.
+
+ - Regression where use of `Application.isEditor` cannot be accessed from other
+   threads.
+
+ - **Randomize Rotation** option was not working for spray tool.
+
+ - Atlas texture memory was leaking because procedural mesh updater was hanging
+   on to a static reference.
+
+ - GUI icons appeared dark in Unity editor when player setting **Color Space**
+   was set to **Linear**.
+
+ - Regression where scene palette goes empty after scripts re-compile.
+
+ - Tile system not listed in scene palette when prefab is dragged into scene
+   view.
+
+ - Category popout menu becomes inaccessible if path contains empty slugs.
+
+ - Tag and layer value lost when colliders are reduced.
+
+ - Unexpected tag and layer on when colliders have been reduced.
+
+ - Prevent use of **Build Prefab** button when multiple tile systems are being
+   edited.
+
+ - Error messages were logged when clicking buttons that open editor windows.
+   This issue was only applicable to OS X.
+
+
+v2.3.1 (2014-06-16)
+===============================================================================
+
+## New Features
+
+ - Added alignment options to for plop tool.
+
+ - Added variation shift buttons '+' and '-' to tool palette which allow
+   variations to be cycled prior to painting or plopping. Includes keyboard
+   shortcuts '+' and '-' and '0' (to reset shift factor).
+
+ - Added variation shift support to `PaintingUtility` and `PaintingArgs`.
+
+
+## Improvements
+
+ - There is no longer a set limit to 48 categories in the brush designer.
+
+ - Categories can be grouped into popout menus by including a forward slash
+   character in the name. For instance "Actors/Enemies".
+
+ - Variation is now pre-randomized when using paint and plop tools in-editor
+   so that the immediate preview can reflect the actual variation that will
+   be painted.
+
+ - Added new property `ToolUtility.PreviouslyPlopped` which may be useful for
+   custom scripts.
+
+ - Added new component `CustomImmediatePreview` which can be implemented to
+   provide custom immediate previews for tile prefabs.
+
+ - Exposed `ToolBase.PreFilterLocalPoint` so that custom tools can align active
+   tile from cells or points.
+
+
+## Bug Fixes
+
+ - Fixed issue where plop position was invalid after plop was manually moved.
+
+ - Immediate preview is no longer drawn for inactive renderer components.
+
+ - Removed `Rotorz.Tile.Editor.BrushNozzle` since this is ambiguous and is no
+   longer required.
+
+ - Resolved issue where **Ctrl + Mouse Wheel** no longer worked for adjusting
+   nozzle size on Windows.
+
+ - Scene views are now repainted when "Randomize Variations" option is toggled
+   so that immediate preview reflects this change.
+
+
+v2.3.0 (2014-06-09)
+===============================================================================
+
+This update addresses a number of issues including bug reports and general
+usability improvements.
+
+**IMPORTANT:** As always, backup your files before using this update.
+
+
+## New Features
+
+ - **New Tool:** Spray Tool - For sprinkling tiles.
+
+ - **New Tool:** Plop Tool - For freely plopping tiles anywhere on plane of
+   tile system.
+
+ - Paint tool now includes "Paint Around Existing Tiles" toggle.
+
+ - Tile systems can now be locked via their context menu using scene palette
+   to avoid inadvertently painting or erasing tiles.
+
+ - Variations now have weights which provide control over random selection
+   when painting. Variations that share the same weight have an equal chance
+   of being selected.
+
+ - `PaintingUtility` class exposes common painting functionality for use at
+   runtime which is ideal for creating in-game painting tools.
+
+ - `ReduceColliderUtility` class exposes collider optimization for use at runtime.
+
+
+## Changes
+
+ - Since Unity 4.5 has introduced a new function `AssetDatabase.FindAssets`
+   it is no longer necessary to identify asset types using a custom naming
+   scheme. Since these are no longer needed an update prompt is automatically
+   shown when the legacy suffixes ".brush" or ".set" are found allowing these
+   to be removed automatically. This check can also be triggered by selecting
+   "Rescan Brushes" from the main tool menu.
+
+ - `TileSystem.GetTile` now throws an exception upon attempting to access
+   out-of-bound indices. New methods `GetTileOrNull` and `InBounds` have been
+   added allowing users to avoid such exceptions from being thrown.
+
+ - Added properties `CellSize`, `RowCount` and `ColumnCount` to tile system
+   component which should now be used instead of the public fields `tileSize`,
+   `rows` and `columns`.
+
+ - User preferences are now saved to a JSON setting file within the application
+   data folder for Windows users or the configuration folder for Mac users.
+
+ - Custom tools should now override `OnEnable()` instead of `OnSelected()`.
+   This naming change was made for consistency with Unity naming.
+
+ - Tools should no longer override the `Name` property since this is no longer
+   used and will be removed in the future.
+
+ - Moved tool cursors into new utility class `ToolCursors` which can be used
+   when implementing custom tools if desired.
+
+ - Removed "Save Prefab..." command from tile system context menu and inspector
+   since this no longer provides any additional value and its presence just
+   seems to cause confusion.
+
+ - Removed functionality which was marked obsolete in previous releases.
+
+ - Renamed several members to use US English rather than UK English. It is
+   unlikely that anybody will be affected by these changes, but the resolution
+   is fairly straightforward.
+
+
+## Improvements
+
+ - General performance optimizations throughout.
+
+ - Prevent editor controls from stealing keyboard focus avoiding breakage of
+   keyboard shortcuts within tool option interfaces.
+
+ - Revamped entire tool implementation allowing for more capable tools to be
+   created. Tools can now easily register custom options which are automatically
+   persisted into user preferences.
+
+ - Paint tool now allows input of "Nozzle Size" for square nozzle or "Nozzle Radius"
+   for round nozzle allowing for selection of even sizes for square nozzle.
+
+ - `TileIndex` now implements `IEquatable<TileIndex>` to avoid value boxing when
+   used in generic collections to improve performance.
+
+ - Tile system inspector now supports multi-object editing.
+
+ - Scene palette is now far more responsive.
+
+ - It is now possible to interact with scene view rotation gadget (in upper-right
+   corner of scene view) when a Rotorz Tile System tool is active.
+
+ - It is now possible to activate painting tools using their keyboard shortcut
+   (provided that a tile system is selected) even when tool palette is not
+   shown. A preference has been added to automatically display tool palette
+   upon activating a tool, but this is no longer necessary in order for tools
+   to function.
+
+ - Added undo/redo support for changes made to ordering and visibility of tile
+   systems within scene palette.
+
+ - Restored some undo/redo functionality for tile system operations which were
+   lost when the new undo/redo system was introduced by Unity 4.3.
+
+ - Added user preference "Always center utility windows.".
+
+ - Added tile transformation utility methods to tile system which use pre-calculated
+   matrices and quaternions for better performance.
+
+ - "Use as Prefab Offset" feature now supports undo/redo.
+
+ - Tool options can now be restored to their default values by selecting "Reset Tool Options"
+   from context menu in tool palette.
+
+ - Advanced tool options are now tucked away behind "Advanced" fold-out area
+   inside tool palette.
+
+ - Variation indices are now better preserved when using bulk edit mode to
+   address the issue which was raised in the following forum post:
+   http://forum.rotorz.com/viewtopic.php?id=21.
+
+ - Trigger colliders are no longer combined with non-trigger colliders since
+   this can incorrectly affect game behavior. In a similar vein colliders are
+   also kept separate when they contain different physics materials.
+
+ - Updated labelling of property "Generate Second UVs" for consistency with
+   updated labelling in the Unity GUI.
+
+ - Added custom asset processor so that new brush and tileset assets can be
+   automatically detected without requiring user to select "Rescan Brushes"
+   upon importing brushes and tilesets from a package.
+
+ - Redesigned "Build Prefab from Tile System" window allowing keyboard input
+   for asset paths. Previously used paths are now retained within tile system
+   component so that they can be presented when window is next shown.
+
+ - Brush palette no longer redirects to tileset upon deleting a tileset brush
+   if the main brush view is shown since this was confusing behavior.
+
+ - Added "Mark Procedural Dynamic" toggle to tile system allowing user to
+   specify whether mesh should be optimized for fast updates or lower
+   memory usage.
+
+
+## Bug Fixes
+
+ - Removed usage of scroll view control which was removed from Unity API in 4.5
+   to resolve issue where brush designer window was completely unusable.
+
+ - Corrected alignment of controls within windows since Unity 4.5 no longer
+   includes a leading 10px space.
+
+ - Fixed minor visual artefact in brush list control and brush designer window
+   which were introduced by changes made in Unity 4.5.
+
+ - `NullReferenceException` was thrown when navigating forward/backwards in
+   brush designer window after deleting a tileset brush. This issue did not
+   seem to occur in Unity 4.3, so this may be related to changes made in
+   Unity 4.5.
+
+ - Corrected issue which was introduced when Unity 4.3 introduced its new
+   undo/redo system where cached values were not invalidated after serialization
+   occurred. This issue applied to tile systems and oriented brush assets.
+
+ - Resolved issue where user flags were not being preserved when tiles were
+   being refreshed.
+
+ - Resolved issue where `TileSystem.SetTileFrom(TileIndex, TileData)` was not
+   behaving properly.
+
+ - Resolved issue where brush preview was incorrectly cleared from original
+   brush upon duplicating an oriented brush and then removing a variation.
+
+ - Corrected unexpected behavior of fill tool when simple rotation was being used.
+
+ - Runtime version number is now resolved at build-time using T4 template to
+   resolve issue which occurred when attempting to create a tile system at
+   runtime on some of Unity's target platforms.
+
+ - Tile systems are now properly excluded from scene palette and `ToolUtility.GetAllTileSystemsInScene`
+   when they are hidden using `hideFlags` or reside within a prefab.
+
+ - Resolved issue where empty game objects were not always stripped upon
+   building a tile system.
+
+ - Resolved issue on OS X where escape key did not cancel line/rectangle drawing.
+
+ - Tile transformations are now properly applied when using nested brushes when
+   specified variation index is out of range.
+
+ - Attached collider objects are now properly removed upon optimizing colliders.
+
+ - Added workaround for Unity bug (Case 605226) where custom cursors are not
+   properly updated on OS X.
+
+ - Unused mesh component is now stripped when procedurally generated mesh is empty.
+
+ - Corrected issue where procedural mesh component was being incorrectly stripped
+   thus preventing associated mesh resource from be released.
+
+ - Added workaround for issue where procedural mesh resource was not being
+   properly released when exiting from play mode in-editor. This appears to be
+   a problem with delayed nature of `Object.Destroy` not being satisfied when
+   stopping play mode in-editor.
+
+ - Added workaround for small issue where multi-part asset name is not always
+   updated when the "main" asset is renamed. This was causing legacy suffixes
+   to be falsely detected (but didn't actually do anything).
+
+ - Cancel rename mode in scene palette when undo/redo is detected.
+
+
+v2.2.2 (2013-12-06)
+===============================================================================
+
+## Improvements
+
+ - Previously selected tile system preset is now automatically active when
+   creating a new tile system.
+
+ - Renamed "Default" preset to "Default: 3D" and introduced a new default
+   preset called "Default: 2D". The main difference is that the default chunk
+   size for 2D tile systems is 100x100 since this tends to perform more
+   efficiently for 2D tile maps.
+
+ - Collider type is automatically set based upon the default editor behavior
+   when toggling "Add Collider" for tileset brushes. This provides a slightly
+   smoother workflow for 2D developers.
+
+
+## Change
+
+ - The behavior of tile systems with sideways facing tiles has been adjusted
+   to significantly improve workflow with Unity 4.3 sprites.
+
+   Until now tile prefabs have been rotated by 180 degrees to face away from
+   the tile system. As of this version rotation is no longer applied for
+   sideways facing tiles **unless** the new per brush property `Force Legacy Sideways`
+   is selected.
+
+   Any existing brushes will be automatically configured to continue to use the
+   legacy sideways behavior upon updating this asset. This option can be
+   toggled within the "Extended Properties" panel for affected brush types
+   (oriented brushes and brushes which have prefab attachments).
+
+
+## Bug Fixes
+
+ - Immediate previews are now rendered for prefabs containing Unity 4.3 sprites.
+
+ - Fixed bug where tiles could not be erased when brush reference is null.
+   For example, brush originally used to paint tile has been deleted.
+
+
+v2.2.1 (2013-11-16)
+===============================================================================
+
+## Change
+
+ - By default tiles marked as solid are reduced into colliders which is not
+   always the desired case for existing projects. The default value for this
+   preference is now `false`.
+
+
+v2.2.0 (2013-11-13)
+===============================================================================
+
+## New Features
+
+ - Rectangle tool for painting filled and outlined rectangles.
+
+ - Visibility and ordering of tools within the tools palette can now be
+   customized using the preferences window.
+
+ - Tiles can now be rotated in increments of 90 degrees when painting them
+   (see user guide for keyboard shortcuts).
+
+ - Orientations with rotational symmetry allow things like corners and walls
+   to be defined using one prefab. Previously it was necessary to duplicate
+   the prefab for each corner.
+
+ - Variations can now be reordered by dragging them within (or between!)
+   orientations. Variations can be copied by holding the **Ctrl** key whilst
+   doing so.
+
+ - Box collider (both 2D and 3D) optimisation upon building tile systems.
+
+ - Tileset brushes now allow selection of 2D or 3D box collider.
+
+ - Asset now includes XML files for IntelliSense within both MonoDevelop and
+   Visual Studio.
+
+
+## Improvements
+
+ - Added "Lock" item to designer window menu (upper right).
+
+ - Upgraded user interfaces to work with Unity 4.3.
+
+ - Brush field now accepts keyboard focus and input.
+
+ - Automatically focus "Name" field upon selecting brush creator tab (if empty).
+
+ - Improved responsiveness of tab selection interfaces.
+
+ - Brush picker field is now automatically shown for brush fields within
+   inspectors.
+
+ - Various performance improvements.
+
+ - "Define or Find Orientation" is now a drop-down interface instead of a
+   floating window.
+
+ - Orientations are now sorted by rotational symmetry.
+
+ - Added overloads to several tile system functions allowing input of `TileIndex`.
+
+ - Improved appearance of custom interfaces for dark skin.
+
+ - Removed assembly version number from runtime and editor assemblies allowing
+   third-party developers to reference them from within their own DLLs more easily.
+   File version will still be updated as per normal.
+
+ - Replaced prefab preview generation with texture asset preview generation (the
+   "z_{guid}.prefab" assets) which is faster and looks better. This also works
+   around a Unity bug where asset previews break upon enabling/disabling source
+   control.
+
+ - Added custom inspector for brush and tileset assets.
+
+ - Revamped oriented brush designer interface!
+
+ - Lines now take the same path when drawn or traced in the opposite direction.
+
+ - Tools now have accompanying cursors!
+
+ - Added editor preference allowing user to disable custom cursors.
+
+
+## Changes
+
+ - Minimum supported version of Unity is now 4.3.
+
+ - Moved brush property field attribute into editor assembly and replaced former
+   scripts with empty ones. This change provides consistency for UnityScript
+   developers.
+
+ - Changed naming and operation of "hideAlias" to "showAlias" in brush field
+   control for consistency elsewhere. This may effect some custom editor scripts.
+
+ - Removed editor preference "Enable undo for fill (slower)" since this no longer
+   works with the new undo mechanism which was introduced with Unity 4.3.
+
+
+## Bug Fixes
+
+ - Fixed spelling error in tile system inspector of "Rebuild" button.
+
+ - Fixed bug where brush picker window didn't release hot control upon
+   double-clicking brush.
+
+ - Fixed bug where tiles with missing game objects were not properly erased.
+
+
+v2.1.1 (2013-08-02)
+===============================================================================
+
+## New Features
+
+ - Edit flag labels project-wide or on per brush basis.
+
+
+## Bug Fixes
+
+ - Object factories were unable to 'cancel' prefab instantiation by returning
+   `null`.
+
+
+v2.1.0 (2013-07-23)
+===============================================================================
+
+This update addresses a number of issues including bug reports and general
+usability improvements.
+
+The RTS menu has been relocated as per request by the asset store submission
+team since too many assets are including top-level menus. This extension can
+now be accessed via the **Window** menu by selecting **Rotorz Tile System 2**.
+This displays the tool palette which now includes the main tool menu.
+
+[See video for overview](http://youtu.be/OtTkNSO2Zko)
+
+
+## New Features
+
+ - Designer window can be locked using padlock icon in upper-right corner. This
+   works in a similar way to the regular inspector window.
+
+ - Right-click brush in palette to reveal useful context menu.
+
+ - Designer window now includes selection history navigation.
+
+ - Fallback option "Use Default Strict" for automatic orientation.
+
+ - "Refresh Preview" command to manually regenerate brush preview.
+
+ - "Clear Preview Cache" command to clear cache of prefab previews. This is
+   useful for oriented brushes which reference one or more prefabs.
+
+ - Tile system grid is now shown for active tile system even when not selected
+   to assist with manual alignment of objects. The user preference "Highlight
+   active tile system" disables this new behavior.
+
+ - Zoom option available for icons presentation in brush palette.
+
+
+## New Shortcuts
+
+ - **Double-click** brush in palette to show designer.
+
+ - **Ctrl + Left Click** brush to select and activate paint tool.
+
+ - **Ctrl + Right Click** brush to set secondary brush and activate paint tool.
+
+
+## Improvements
+
+ - Designer window has been redesigned and optimized.
+
+ - Brushes can now be created via the brush palette.
+
+ - Quicker selection of tilesets in brush palette.
+
+ - Previous position and state of brush field selector window is now persisted.
+
+ - More responsive user interface for easier usage.
+
+ - Click and drag to paint within "Define or Find Orientation" window. Faster
+   and a tad more enjoyable!
+
+ - Moved "Erase" button to avoid disrupting flow of tileset brushes.
+
+ - Cleaned up visual appearance of interfaces for both light and dark skin.
+
+ - Brush icons are automatically scaled to fit available space in brush palette.
+
+
+## Changes
+
+ - "RTS" menu relocated into tool palette.
+
+ - Entry point is now **Window | Rotorz Tile System 2**.
+
+ - Designer window no longer includes brush list since brush palette is now used
+   instead. This avoids visual confusion where multiple brush lists were shown
+   side-by-side.
+
+ - Brush type is now clearly displayed to left of brush name.
+
+ - Removed "None" button from tool palette. Tool can be deactivated by either
+   re-clicking it, or by selecting one of the regular Unity tools. This is
+   similar to the Unity terrain editor.
+
+ - List/Icons presentation switch moved to lower left of brushes palette.
+
+ - Minor changes to API.
+
+ - Changed label of editor preference "Classic Mode" to
+   "Join tool and brush palettes" for clarity.
+
+ - Default coloring of tile system grid has been changed. Some users will need
+   to select "Use Defaults" in the preferences window before change takes effect.
+
+
+## Bug Fixes
+
+ - User flags were not correctly set when using brush designer.
+
+ - Fallback of automatic orientation was not persisted.
+
+ - Selection of model prefabs now denied by oriented brush designer since they
+    do not behave consistently with regular prefabs.
+
+ - User-defined tile system creation presets are now persisted in the path
+    "Assets/Rotorz/Tile System/UserData/presets.xml". This resolves the issue
+	where the defaults overwrite them upon updating to newer versions of Rotorz
+	Tile System.
+
+ - Missing brushes (i.e. those that have been deleted manually) are no longer
+    shown in brush lists.
+
+ - "Reset" button is now always shown to right of rename brush field when
+    changes have been made. Rename button is only shown when name does not
+	contain invalid characters.
+
+ - Corrected alignment of immediate preview mesh for tileset brushes for
+    "upwards" tile systems.
+
+ - Attachment not properly preserved for tileset brushes in "Upwards" tile
+    systems.
+
+ - Object selection was lost when switching between play/edit mode, though
+    selection will still be lost when containing a tile system since this is a
+	necessary workaround to a bug in Unity.
+
+ - Added workaround for inconsistency of tile system grid between Unity 3.5.7
+    and Unity 4.x.
+
+ - Initial value of "Hide Tileset Brushes" was incorrect.
+
+ - `NullReferenceException` was thrown when attempting to drop objects onto
+    scene palette.
+
+ - Progress bar is now automatically hidden in editor when using tile system
+    resize utility.
+
+ - Tile system property was not correctly passed into build event handler.
+
+ - Transform component for generated mesh chunk objects was incorrectly
+    initialized when "Combine into Submeshes" was deselected.
+
+
+v2.0.6 (2013-05-03)
+===============================================================================
+
+## New Features
+
+ - Ability to offset and/or change the number of rows and columns within a tile
+   system.
+
+ - New coalesce mode "Own And Group" for orienting brushes.
+
+ - "Combine into submeshes" build option which is enabled by default for
+   consistency with previous versions.
+
+
+## Improvements
+
+ - Warning message that is shown when "Tile Dimensions" and/or "Tiles Facing"
+   properties are changed can now be hidden. This is useful when the warning
+   message is not applicable.
+
+ - Minor refinements to user interface.
+
+
+## Changes
+
+ - `TileSystemUtility` has been moved to the runtime API `Rotorz.Tile.TileSystemUtility`.
+   Editor-only functionality has been moved into `Rotorz.Tile.Editor.ToolUtility`.
+
+
+v2.0.5 (2013-03-11)
+===============================================================================
+
+## Improvements
+
+ - Added extension method `RemapMaterial` to `IMaterialMappings` interface.
+
+ - 'Eraser' mode now uses wireframe indicator when applicable.
+
+ - Updated style of "API Reference.chm" file.
+
+
+## Changes
+
+ - Renamed `Chunk.CountPaintedTiles` to `Chunk.CountNonEmptyTiles`.
+
+
+## Bug Fixes
+
+ - Corrected error in `Chunk.CalculateMidPoint`.
+
+
+v2.0.4 (2013-03-01)
+===============================================================================
+
+## Changes
+
+ - Replaced field `BrushOrientation.mask` with read-only property `BrushOrientation.Mask`.
+
+
+## Bug Fixes
+
+ - Resolved line painting glitch when "Brushes" palette was not docked and
+   attempted to paint singular tile. This issue only affected OS X users.
+
+ - NullReferenceException occurred when refreshing tile due to regression error.
+
+
+v2.0.3 (2013-02-27)
+===============================================================================
+
+## New Features
+
+ - "Use as Prefab Offset" which is available from context menu of transform
+   component, or via the main tool menu.
+
+
+## Improvements
+
+ - Added per-brush option to disable immediate preview.
+
+ - Added workaround to break scale of painted tiles from their prefab.
+
+ - Added immediate preview support for skinned mesh renderers.
+
+ - Added option to disable warning when creating large tile systems.
+
+
+## Bug Fixes
+
+ - Resolved runtime error when preserving tile offset.
+
+
+v2.0.2 (2013-02-22)
+===============================================================================
+
+## New Features
+
+ - Immediate tile preview and associated preferences.
+
+ - Hold control to toggle see-through immediate preview.
+
+
+## Improvements
+
+ - Performance improvement when painting tiles with attachments.
+
+ - Changed default orientation selector to radio button for clarity.
+
+
+## Bug Fixes
+
+ - Tiles combined when "Combine Method" was set to "None".
+
+ - "Combine Method" was not persisted in presets.
+
+
+v2.0.1 (2013-02-15)
+===============================================================================
+
+## Improvements
+
+ - Added support for brush property attribute in UnityScript scripts.
+
+ - Paint nozzle now shows as flat tile for tileset brushes.
+
+ - Added "Preferred nozzle indicator" preference.
+
+
+## Changes
+
+ - Moved editor preferences into separate window **RTS | Preferences...**
+
+
+## Bug Fixes
+
+ - Several minor bug fixes.
+
+
+v2.0.0 (2013-02-01)
+===============================================================================
+Numerous key changes have been made to this version of Rotorz Tile System so
+that new features could be introduced and existing features could be improved.
+
+**IMPORTANT:** Backup your files before installing a v2.x update.
+
+Future versions of Rotorz Tile System will be unpacked alongside earlier v1.x
+releases. There is an upgrade wizard which can be used to upgrade existing v1.x
+brushes and tile systems. Please refer to the migration guide for further details.
+
+
+## New Features
+
+ - Top-level menu "RTS".
+
+ - Tile system panel has been split into separate palette windows which can be
+   accessed via menu **RTS | Editor Windows**.
+
+ - "Scene" palette window to make it easier to switch between tile systems.
+
+ - **Page Up/Down** keyboard shortcut (when tool is selected) to cycle between
+   active tile systems.
+
+ - Anchor support for "Paint" tool so that straight lines can be drawn by holding
+   the shift key. Hold "Control" and "Shift" key to draw straight horizontal or
+   vertical lines.
+
+ - Custom previews can now be specified for brushes via "Extended Properties"
+   using the brush designer. Preview textures should be placed into an "Editor"
+   folder to avoid inclusion with final builds, unless of course you want to
+   use them at runtime!
+
+ - Support for basic and extended autotile artwork.
+
+ - Brush lists now include search field and additional filtering options to
+   make it easier to find brushes.
+
+ - Change size of paint brush and switch between round and square nozzles.
+
+ - Shortcut keys **[** and **]** to change brush radius, or alternatively hold
+   **Control** and use mouse wheel (when painting in scene view).
+
+ - Select primary and secondary brush for painting with left and right buttons.
+
+ - **Double-click** variation preview in orientated brushes to locate prefab
+   or edit nested brush.
+
+ - Drag and drop multiple prefabs (or nestable brushes) from the project panel
+   into an orientation.
+
+ - Tileset brushes can be configured to output tiles using a procedural mesh,
+   or alternatively one separate game object for each tile.
+
+ - Edge correction options for tilesets which can help to reduce the effects of
+   bleeding that occurs between tiles.
+
+ - Procedural tiles can be delay generated using `TileSystem.UpdateProceduralAtStart`.
+
+ - "Tiles Facing" option for tile systems which allows tiles to be rotated for
+   sideways games (like platformer), or for upwards games (like top-down).
+
+ - Line tool.
+
+ - User preference "Classic Mode" which combines "Tool" and "Brush" palettes.
+
+
+## Important Changes
+
+ - Rotorz Tile System v2.x is stored in the folder "Assets/Rotorz/Tile System/".
+
+ - Changed extension namespace from "Rotorz.TileSystem" to "Rotorz.Tile" to
+   avoid conflicts with earlier version of extension.
+
+ - Tile system component was renamed from `RotorzTileSystem` to `TileSystem`.
+
+ - Brushes are now ScriptableObject assets instead of MonoBehavior components.
+   This was an important step towards the new tileset capabilities.
+
+ - Brush classes are now post-fixed with `Brush` instead of `TileBrush`. Despite
+   offering a cleaner naming convention, hopefully this will help programmers to
+   migrate from the `MonoBehavior` design to the `ScriptableObject` design.
+
+ - Brush assets are stored within "TileBrushes" folders (instead of "TilePrefabs").
+   This was changed to differentiate between v1.x and v2.x brushes.
+
+ - Master brushes can now be placed into any folder called "Master" within
+   a "TileBrushes" folder. This provides greater flexibility.
+
+ - A naming convention has been used to detect brush and tileset assets.
+
+   This means that accessing the "brush.name" property may include an
+   additional postfix. The new property `DisplayName` has been added which
+   excludes the naming convention.
+
+ - Runtime and editor API property names now use camel case naming for
+   consistency with general C# guidelines.
+
+
+## Changes
+
+ - The concept of a "Basic Brush" has been deprecated in favor of the more
+   consistent approach of creating oriented brushes. The upgrade wizard will
+   automatically upgrade existing basic brushes to oriented brushes.
+
+ - DLLs are now named "TileSystem.Runtime.dll" and "TileSystem.Editor.dll".
+
+ - Changed the default chunk size from 20x20 to 30x30.
+
+ - "Erase Empty Chunks" is now disabled by default when creating tile systems.
+
+ - Introduced `TileSystem.SetTileFrom` which aims to replace `TileSystem.SetTile`.
+
+ - Empty `TileData` instances are no longer cleared when game starts because
+   whilst they are not in use, they can help to avoid memory allocations and
+   garbage collection when using the runtime API.
+
+ - Custom tools must now be derived from `ToolBase` instead of implementing
+   the interface `ITool`.
+
+
+## User Interface
+
+ - "Create Brush" window now has a tabbed interface which can be extended with
+   custom brush creator interfaces using the editor API.
+
+ - "Create Brush" window can be shown with a specific creator selected.
+
+ - Replaced "Create Brushes from Atlas" window with tileset creator interface.
+
+ - Added tileset designer interface to brush designer window to make it easier
+   to create additional brushes from tilesets and to modify tilesets.
+
+ - Added tileset selection to brush list control.
+
+ - Standardized preview display throughout extension.
+
+ - Added minimum size to brush selection window.
+
+ - Where possible previous state of brush designer window is persisted (selected
+   brush, category, tileset, etc).
+
+ - Added "Back" button to brush designer window to make it easier to navigate
+   to and fro between brushes.
+
+ - Brush designer window can now be docked into the Unity interface.
+
+ - Changed shortcut action in "Brushes Palette" from "Locate" to "Edit" because
+   this is generally more useful. "Locate" action is still available from brush
+   designer window.
+
+ - Improved quality of information/error/warning message dialogs.
+
+ - New "Refresh Tiles" window which offers greater control over the way in which
+   tiles are refreshed.
+
+ - Fixed bug with drag and drop functionality where scene view incorrectly
+   locked. Also, it is useful to note that brushes cannot be dragged into scene
+   view any more so there is no longer any need to hold Ctrl to perform drag.
+
+ - Brushes can now be marked as "Favorite", "Shown" or "Hidden" for greater
+   control over which brushes are shown in brush list controls.
+
+ - Improved quality of user interfaces when using the Unity Pro skin.
+
+
+## Improvements
+
+ - Removed toggle title "Tile System" from "Create Tile System" window to
+   reduce clutter.
+
+ - Master brushes can now be placed into categories.
+
+ - Added new refresh option "Update procedural tiles" both to GUI and runtime.
+
+ - Fixed bug which caused gaps when painting quickly with "Paint" tool.
+
+ - Added warning message to tileset creator if similar already exists.
+
+ - Added warning message to tileset creator if texture is non power-of-two.
+
+ - Added extended properties interface for empty brushes.
+
+ - "Empty" brush type now has a default preview.
+
+ - Fixed bug: prevent inadvertently adding sub objects of prefabs as oriented
+   brush variations.
+
+ - Corresponding tileset is automatically selected when switching to "Tileset"
+   list view when tileset brush is selected.
+
+ - Corrected alignment of vertical scrollbar.
+
+ - Removed interface `IBrushContext` from brush classes and using context object
+   that is shared between all brushes. This reduces the memory requirements of
+   each brush.
+
+ - Prefabs and colliders can be attached to tileset tiles via brush designer.
+
+ - Added "Rotorz Tile System - Loading brushes..." to console log on startup
+   which might be useful when diagnosing errors.
+
+ - Improved implementation and performance of "Scale Mode" and "Apply Prefab Transform".
+
+ - Grid can be toggled for selected tile system.
+
+ - Fixed bug where single character brush names were not possible when creating
+   a brush using the new user interface.
+
+ - Fixed bug with brush list scrolling.
+
+ - Increased upper limit of `FillTool.MaximumPaintLimit` from 5000 to 10000 which
+   may benefit those who are using procedural atlas tiles. Like before the value
+   of this preference can be changed via preferences window.
+
+ - Reduced the lower limit of chunk sizes from 10 to 2.
+
+ - Fixed bug when attempting to paint with an empty orientation (no variations).
+
+ - Improved warning feedback of oriented brushes by providing the name and
+   orientation in question to help users correct their brushes.
+
+ - Fixed bug with tile system builder where "Combine Method" was set to "None".
+
+ - Fixed bug where entering and leaving play mode when "Apply Basic Stripping"
+   as specified in editor caused "Unable to interact with tile system" message
+   to appear.
+
+ - Added "Override Brush Transforms" option to oriented brush designer so that
+   "Scale Mode" and "Apply Prefab Transform" properties can be overridden if
+   desired of nested brushes.
+
+ - Added new category filter "Uncategorized".
+
+ - Added editor preference to control how empty chunks are erased.
+
+ - Added warning to "Create Tile System" window regarding chunk sizes and
+   procedural meshes.
+
+ - Replaced tile system build functionality with new faster implementation that
+   does not conflict with procedural tiles, and produces better normals when
+   smoothing is enabled.
+
+ - Added option to revert properties of alias brush to its target.
+
+ - Fixed bug with `RotorzEditorGUI.BrushField` where brush name overflowed.
+
+ - Improved performance of various GUIs.
+
+ - Added mini icon overlay to alias brush previews.
+
+ - Removed "Select Brush" button from alias brush designer because it provides
+   the same functionality as the brush field
+
+ - Added "Apply To:" field to "Replace By Brush" window to make it easier to
+   find and replace tiles across all tile systems in a scene.
+
+
+## Runtime API
+
+ - Creation and destruction of tile game objects can now be overridden by
+   providing a custom implementation of `Rotorz.Tile.IObjectFactory` and
+   assigning it to `Rotorz.Tile.DefaultRuntimeObjectFactory`. This may be
+   useful to developers who are looking to implement pooling.
+
+ - Added global event which can be consumed by both runtime and editor scripts
+   to run additional logic after a tile has been painted using a brush.
+
+ - Renamed property `Brush.IsPhysical` to `Brush.CanOverrideLayerAndTag` for
+   greater clarity.
+
+ - Material mapping capabilities can now be added to custom brushes simply by
+   implementing the `IMaterialMappings` interface. Material mapping fields are
+   now only provided for brushes that support them.
+
+ - New `RefreshFlags` enumeration for finer control over the way in which tiles
+   are refreshed.
+
+ - Ability to implement custom brushes.
+
+ - Added global event which can be consumed by both runtime and editor scripts
+   to run additional logic after a tile has been painted using a brush.
+
+ - Added method `TileSystem.IsSolid` to easily determine whether a tile is
+   flagged as being solid.
+
+ - Added various tile trace methods to tile system class to make it easier to
+   detect tiles based on flag, brush or using a custom delegate.
+
+
+## Editor API
+
+ - Creation and destruction of tile game objects can now be overridden by
+   providing a custom implementation of `Rotorz.Tile.IObjectFactory` and
+   assigning it to `Rotorz.Tile.DefaultEditorObjectFactory`.
+
+ - Ability to implement custom designers for custom brush types.
+
+ - Custom "Create Brush" tabs can be registered using `BrushCreator.Register`.
+
+ - Some properties can be shared between multiple brush creator interfaces.
+
+ - Removed `BrushType` enumeration and improved brush utility methods.
+
+ - New field for category selection `RotorzEditorGUI.BrushCategoryField`.
+
+ - Brush database now provides a way to enumerate tilesets and access their
+   associated brushes.
+
+ - Brushes must now be renamed via using `BrushDatabase.RenameBrush`.
+
+ - Replaced `GUITileBrushList` with `BrushListControl`.
+
+ - Brush previews can now be drawn via `RotorzEditorGUI.DrawBrushPreview`.
+
+ - Functionality within `FillTool` class can now be overridden consistent with
+   other tool classes.
+
+ - Fixed bug with brush selection window that cause Unity 4 to crash.
+
+ - Removed `RefreshAllTiles` from editor API because progress feedback is now
+   provided by runtime API.
+
+ - Custom brush descriptors can be registered for greater control over custom
+   brush types.
+
+ - Implemented `BrushDescriptor.DrawPreview` which can be overridden for to
+   render specialized preview for custom brushes.
+
+ - Added generic delete brush functionality to brush descriptor which can be
+   overridden as needed by specialized brushes.
+
+ - Shortcut actions (None, Edit and Ping) can now be specified for brush lists.
+
+ - Added static fields `selectedBrush` and `selectedBrushSecondary` to the
+   class `ToolUtility` making it easy to access the currently selected brushes.
+
+ - Custom parameter GUI can now be defined for custom tools.
+
+ - Added `BrushPropertyAttribute` so that brush selector can be used for brush
+   fields via the inspector.
+
+
+v1.1.3 (2012-11-02)
+===============================================================================
+
+**Notice:** Unity 4 users are advised to upgrade to this version before
+upgrading to the upcoming version 2.0.0.
+
+
+## Bug Fix
+
+ - Unity 4 compatability issues.
+
+
+v1.1.2 (2012-08-21)
+===============================================================================
+
+## New Features
+
+ - 16 custom user flags per brush/tile plus easy access "Solid" flag. Custom
+   user flags can be accessed and altered using the runtime API.
+
+ - Alias brushes can override flags of their targets.
+
+ - Oriented brushes can force override flags of nested brushes.
+
+
+## Improvements
+
+ - Added new user guide.
+
+ - Added easier drop support to oriented brush designer.
+
+ - Horizontal scrolling is much better for oriented brushes that have many
+   variations thanks to "fixed" section support.
+
+ - Added error feedback when dragging prefabs into orientations.
+
+ - Removed "Info" icon from "Show Tips" tips to reduce clutter.
+
+ - Added drag anchor to brush list views to decrease sensitivity of drag motion.
+   window was open when entering/leaving play mode.
+
+ - Material mapper is now better at automatically detecting materials.
+
+ - Mini label is now shown when no brush preview is available.
+
+ - Simplified brush designer by moving more complex properties into collapsable
+   "Extended Properties" section.
+
+ - Gear menu contains option to manually refresh brush database.
+
+
+## Changes
+
+ - Opening brush designer no longer refreshes brush database. Instead please
+   use the "Refresh and Detect Brushes" option from the Gear menu.
+
+
+## Bug Fixes
+
+ - Editor preferences were reset if tile system panel was not previously shown.
+
+ - Out-of-view brushes could be dragged and dropped.
+
+ - Dragging of brushes was detected out of context.
+
+ - `NullReferenceException` was thrown when brush designer.
+
+ - Brush designer was not shown after creating new brush.
+
+
+v1.1.1 (2012-07-16)
+===============================================================================
+
+## Bug Fix
+
+ - Preview prefabs were not being refreshed.
+
+
+v1.1.0 (2012-07-09)
+===============================================================================
+
+Existing tile systems must be upgraded to become compatible with the new tile
+system data structure. Various warning messages are presented to hopefully make
+this process straightforward:
+
+ 1. Backup your project (before applying update from asset store)
+
+ 2. Download and apply update from asset store
+
+ 3. For each existing tile system (in turn):
+
+	a. Select tile system
+
+	b. Review upgrade preferences
+
+	c. Click "Upgrade" button in inspector
+
+Custom scripts that make use of either the editor or runtime API may require
+changes to become compatible with the latest version.
+
+
+## New Features
+
+ - Tiles that have been accidentally deleted (not erased) can be restored or
+   erased using "Repair Tiles".
+
+ - Empty chunks are removed automatically when painting (both in editor and at
+   runtime). This can be disabled when appropriate.
+
+ - Tile game objects are now placed within their respective chunk game object.
+   This forms an essential part of the data structure, however these chunk game
+   objects can be stripped when tile access is not required at runtime. For some
+   game developers the chunks could even be utilized to optimize performance.
+
+ - Introduced bulk edit mode to runtime API to improve performance when painting
+   and/or erasing multiple tiles. Improvements are especially noticable for
+   oriented brushes.
+
+ - Color of tile system grid and chunk boundaries can now be customized via the
+   Unity preferences window ("Tile System" section).
+
+ - General drag and drop support for brush list views. Simply hold the
+   **Control** key to drag from list into a brush input field.
+
+ - Reveal location of a brush in the project window by holding "Control" and
+   double clicking brush from a brush list view.
+
+ - User interface and runtime API to repaint all tiles that were painted with
+   one brush using another brush (aka "Find and Replace").
+
+ - Picker (or Eye-Dropper) tool to quickly sample the brush of a previously
+   painted tile.
+
+ - Editor shortcut keys (similar to Photoshop) to quickly switch between tools
+   when a tile system is selected:
+
+    - **B** = Brush
+    - **X** = Cycle
+    - **G** = Fill
+    - **I** = Picker
+
+ - "Empty Variation" brush that does not generate any visual output. Use this
+   brush to create gaps within oriented tiles (as opposed to zero alpha). This
+   doesn't even create an empty game object!
+
+ - A lot more control over the way in which a tile system is stripped. A number
+   of configuration presets have been added to simplify selection. In addition
+   to adding lots of control, the new presets should make stripping easier to
+   understand.
+
+ - Added ability to change chunk size of tile system and rebuild data structure.
+
+
+## Runtime API
+
+ - Moved stripping process from editor API into runtime API.
+
+
+## Editor API
+
+ - Added editor API to create brush fields for custom editor interfaces. This
+   field works in much the same way as the object field but with the brush
+   selection window instead of the prefab selection window.
+
+
+## Improvements
+
+ - Fresh new look to existing user interfaces!
+
+ - An improved editor and runtime API with various new offerings.
+
+ - New inspector GUI for tile system component that groups properties into
+   meaningful sections.
+
+ - Status panel now display graphical representation of tile orientation:
+
+    - Green = Matching part of orientation
+	- Red   = Surplus part of orientation
+    - Gray  = Missing part of orientation
+
+ - Fill tool no longer applies its paint constraint to "Erase" functionality.
+
+ - Handle of selected tile system is no longer rendered making it easier to
+   select an underlying tile system.
+
+ - Alias brushes can now selectively override the transform of its target.
+
+ - Custom tweaking of tiles are more resilient to being refreshed.
+
+ - Reprogrammed tile system builder which is a lot faster plus supports the
+   new "Combine Method" and "Stripping" options.
+
+ - Increased maximum number of brush categories from 32 for 48.
+
+
+## Changes
+
+ - Status panel now shows the name of the brush that was used to paint the
+   active tile (instead of game object name).
+
+
+v1.0.9 (2012-06-14)
+===============================================================================
+
+## New Feature
+
+ - Drag and drop support to brush designer.
+
+
+## Improvements
+
+ - Various performance improvements.
+
+ - Half-pixel inset for generated atlas brush UVs.
+
+
+v1.0.8 (2012-06-11)
+===============================================================================
+
+## New Feature
+
+ - Fill tool.
+
+
+## Improvements
+
+ - Simplified user interface.
+
+ - Various other minor refinements.
+
+
+v1.0.7 (2012-06-06)
+===============================================================================
+
+## New Feature
+
+ - Added status panel for active tile.
+
+
+v1.0.6 (2012-06-05)
+===============================================================================
+
+## New Feature
+
+ - Added category support to atlas brush utility window.
+
+
+v1.0.5 (2012-06-01)
+===============================================================================
+
+## New Feature
+
+ - Added ability to categorize groups.
+
+
+## Improvements
+
+ - Cleaned up UI a little.
+
+
+v1.0.4 (2012-05-30)
+===============================================================================
+
+## Improvements
+
+ - Minor UI improvement.
+
+
+v1.0.3 (2012-05-23)
+===============================================================================
+
+## New Feature
+
+ - Added support for automatic 2D brush generation from a texture atlas.
+
+
+v1.0.2 (2012-05-15)
+===============================================================================
+
+General improvements and some minor bug fixes.
+
+
+v1.0.1 (2012-05-09)
+===============================================================================
+
+Initial release.

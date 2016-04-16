@@ -1,0 +1,4554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>TileSystem.Editor</name>
+  </assembly>
+  <members>
+    <member name="T:Rotorz.Tile.Editor.AliasBrushDesigner">
+      <summary>
+            Designer for <see cref="P:Rotorz.Tile.Editor.AliasBrushDesigner.AliasBrush" /> brushes.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.AliasBrushDesigner.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.AliasBrushDesigner</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.AliasBrushDesigner.AliasBrush">
+      <summary>
+            Gets the alias brush that is being edited.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.AliasBrushDesigner.DrawSecondaryMenuButton(UnityEngine.Rect)">
+      <summary>
+            Draw secondary menu button.
+            </summary>
+      <param name="position">Position of button in window.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.AliasBrushDesigner.EndExtendedProperties">
+      <summary>
+            End extended properties GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.AliasBrushDesigner.OnEnable">
+      <summary>
+            Occurs when designer view is initialized for first time.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.AliasBrushDesigner.OnGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of designer.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.AliasBrushDesigner.SetAliasTarget(Rotorz.Tile.Brush)">
+      <summary>
+            Specify brush that the edited brush is an alias of.
+            </summary>
+      <param name="brush">Target brush.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BasicHandler">
+      <summary>
+            Basic event handler.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushAssetRecord">
+      <summary>
+            Provides data about a brush asset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.AssetPath">
+      <summary>
+            Gets file path of brush asset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.Brush">
+      <summary>
+            Gets the brush.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.DisplayName">
+      <summary>
+            Gets display name of brush.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.IsFavorite">
+      <summary>
+            Gets a value indicating whether brush has been favorited.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.IsHidden">
+      <summary>
+            Gets a value indicating whether brush is hidden.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.IsMaster">
+      <summary>
+            Gets a value that indicates if brush is a master brush.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.IsShown">
+      <summary>
+            Gets a value indicating whether brush is shown.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushAssetRecord.MainAsset">
+      <summary>
+            Gets the main asset object.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushCategorySelected">
+      <summary>
+            Brush category selection delegate.
+            </summary>
+      <param name="categories">
+            Collection of category numbers indicating new category selection.
+            </param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushChangedHandler">
+      <summary>
+            Represents the method that will handle brush selection changed events.
+            </summary>
+      <param name="previous">Previously selected brush.</param>
+      <param name="current">Currently selected brush.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushCreator">
+      <summary>
+            Base class for custom brush creator interfaces.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.#ctor(UnityEditor.EditorWindow)">
+      <summary>
+            Prepares instance of <see cref="T:Rotorz.Tile.Editor.BrushCreator" />.
+            </summary>
+      <param name="window">The parent window.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.AcceptKeyboardReturn">
+      <summary>
+            Determines whether return key was pressed to proceed with creation of brush.
+            </summary>
+      <returns>
+            A value of <c>true</c> if return key was used to accept user input.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushCreator.BrushName">
+      <summary>
+            Gets or sets name of new brush.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.DrawBrushNameField">
+      <summary>
+            Creates brush name field.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushCreator.Name">
+      <summary>
+            Gets name of brush creator.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnButtonCancel">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnButtonCreate" /> is called when "Cancel" button is clicked.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnButtonCreate">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnButtonCreate" /> is called when "Create" button is clicked.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnButtonGUI">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnButtonGUI" /> is called to handle brush creator buttons.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnDisable">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnDisable" /> is called when brush creator is no longer required.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnEnable">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnEnable" /> is called when brush creator is first initialized.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnGUI">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnGUI" /> is called for rendering and handling GUI events.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnHidden">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnHidden" /> is called each time brush creator is hidden.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.OnShown">
+      <summary>
+        <see cref="M:Rotorz.Tile.Editor.BrushCreator.OnShown" /> is called each time brush creator is shown.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.Register``1">
+      <summary>
+            Register custom brush creator interface.
+            </summary>
+      <typeparam name="T">Type of brush creator.</typeparam>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushCreator.SharedProperties">
+      <summary>
+            Gets collection of properties that are shared between all brush creators.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushCreator.TargetBrush">
+      <summary>
+            Gets or sets the target brush.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushCreator.Title">
+      <summary>
+            Gets title of brush creator.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.Unregister``1">
+      <summary>
+            Unregister brush creator interface.
+            </summary>
+      <typeparam name="T">Type of brush creator.</typeparam>
+      <returns>
+            A value of <c>true</c> when creator type was unregistered; otherwise <c>false</c>
+            if creator was not previously registered.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.UnregisterBuiltin(System.String)">
+      <summary>
+            Unregister a built-in brush creator interface.
+            </summary>
+      <param name="className">Name of built-in brush creator class.</param>
+      <returns>A value of <c>true</c> when creator type was unregistered; otherwise
+            <c>false</c> if creator was not previously registered.</returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.ValidateAssetName(System.String)">
+      <summary>
+            Checks that specified asset name is valid.
+            </summary>
+      <param name="name">Name of asset.</param>
+      <returns>
+            A value of <c>true</c> when specified asset name is valid; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushCreator.ValidateUniqueAssetName(System.String)">
+      <summary>
+            Checks that specified asset name is both valid and unique.
+            </summary>
+      <param name="name">Name of asset.</param>
+      <returns>
+            A value of <c>true</c> when specified asset name is valid; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushCreator.Window">
+      <summary>
+            Gets the parent window.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushDatabase">
+      <summary>
+            Brush database provides easy access to brush and tileset records in editor scripts.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDatabase.BrushRecords">
+      <summary>
+            Gets a read-only list of brush records that are sorted by display name.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDatabase.FindRecord(Rotorz.Tile.Brush)">
+      <summary>
+            Find record for specified brush asset.
+            </summary>
+      <param name="brush">The brush.</param>
+      <returns>
+            Brush record when found; otherwise a value of <c>null</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDatabase.FindTilesetRecord(Rotorz.Tile.Tileset)">
+      <summary>
+            Find record for specified tileset.
+            </summary>
+      <param name="tileset">The tileset.</param>
+      <returns>
+            The tileset record.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDatabase.GetTilesetBrushes(Rotorz.Tile.Tileset)">
+      <summary>
+            Gets a read-only list of brushes contained within tileset.
+            </summary>
+      <param name="tileset">The tileset.</param>
+      <returns>
+            List of tileset brushes.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDatabase.IndexOfRecord(Rotorz.Tile.Brush)">
+      <summary>
+            Index of record in sorted (by display name) list of brushes.
+            </summary>
+      <param name="brush">The brush.</param>
+      <returns>
+            Zero-based index of record; otherwise a value of -1 if not found.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDatabase.Instance">
+      <summary>
+            Gets the one and only brush database instance.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDatabase.RenameBrush(Rotorz.Tile.Brush,System.String)">
+      <summary>
+            Rename brush asset.
+            </summary>
+      <param name="brush">The brush.</param>
+      <param name="newName">New name for brush.</param>
+      <returns>
+            Name that was assigned to brush.
+            </returns>
+      <exception cref="T:System.ArgumentException">
+            If unable to rename brush.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDatabase.RenameTileset(Rotorz.Tile.Tileset,System.String)">
+      <summary>
+            Rename tileset asset.
+            </summary>
+      <param name="tileset">The tileset.</param>
+      <param name="newName">New name for tileset.</param>
+      <returns>
+            Name that was assigned to tileset.
+            </returns>
+      <exception cref="T:System.ArgumentException">
+            If unable to rename tileset.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDatabase.Rescan">
+      <summary>
+            Rescan brush assets.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDatabase.TilesetRecords">
+      <summary>
+            Gets a read-only list of tileset records that are sorted by display name.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushDescriptor">
+      <summary>
+            Describes a kind of brush.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDescriptor.#ctor(System.Type,System.Type,System.Type)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rotorz.Tile.Editor.BrushDescriptor" /> class
+            </summary>
+      <param name="brushType">Type of described brush.</param>
+      <param name="brushDesignerType">Designer type for described brush.</param>
+      <param name="brushAliasDesignerType">Designer type for aliases of described brush.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDescriptor.AliasDesignerType">
+      <summary>
+            Gets editor <see cref="T:System.Type" /> for alises of described type of brush.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDescriptor.BrushType">
+      <summary>
+            Gets <see cref="T:System.Type" /> of described brush.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDescriptor.CanHavePreviewCache(Rotorz.Tile.Brush)">
+      <summary>
+            Gets a value indicating whether the specified brush supports preview cache.
+            </summary>
+      <param name="brush">The brush.</param>
+      <returns>
+            A value of <c>true</c> if possible; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDescriptor.CreateDesigner(Rotorz.Tile.Brush)">
+      <summary>
+            Create designer for editing a brush of the described kind of brush.
+            </summary>
+      <param name="brush">Brush instance to edit.</param>
+      <returns>
+            The <see cref="T:Rotorz.Tile.Editor.BrushDesignerView" />.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDescriptor.DeleteBrush(Rotorz.Tile.Editor.BrushAssetRecord)">
+      <summary>
+            Delete a brush that is described by this descriptor.
+            </summary>
+      <param name="record">Record for brush that is to be deleted.</param>
+      <returns>
+            A value of <c>true</c> if brush was deleted; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDescriptor.DesignerType">
+      <summary>
+            Gets editor <see cref="T:System.Type" /> for described type of brush.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDescriptor.DisplayName">
+      <summary>
+            Gets display name for brush type.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDescriptor.DrawPreview(UnityEngine.Rect,Rotorz.Tile.Editor.BrushAssetRecord,System.Boolean)">
+      <summary>
+            Draw brush preview to GUI.
+            </summary>
+      <param name="output">Output position of brush preview.</param>
+      <param name="record">The brush record.</param>
+      <param name="selected">Indicates if preview is highlighted.</param>
+      <returns>
+            A value of <c>true</c> indicates if preview was drawn; otherwise <c>false</c>
+            indicates that caller should assume default.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDescriptor.DuplicateBrush(System.String,Rotorz.Tile.Editor.BrushAssetRecord)">
+      <summary>
+            Duplicate a brush that is described by this descriptor.
+            </summary>
+      <param name="name">Name for new brush.</param>
+      <param name="record">Record for brush that is to be duplicated.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDescriptor.SupportsAliases">
+      <summary>
+            Gets a value indicating whether alias brushes can be created for
+            described type of brush.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushDesignerView">
+      <summary>
+            Base class for all brush designer views.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.BrushDesignerView</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.AddItemsToMenu(UnityEditor.GenericMenu)">
+      <summary>
+            Add items to designer menu.
+            </summary>
+      <param name="menu">The menu.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.BeginExtendedProperties">
+      <summary>
+            Begin extended properties GUI.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDesignerView.Brush">
+      <summary>
+            Gets brush that is being edited.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushDesignerView.brushNameField">
+      <summary>
+            Name of brush as specified by brush name field.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.DrawSecondaryMenuButton(UnityEngine.Rect)">
+      <summary>
+            Draw secondary menu button.
+            </summary>
+      <param name="position">Position of button in window.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.EndExtendedProperties">
+      <summary>
+            End extended properties GUI.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDesignerView.IsValid">
+      <summary>
+            Gets a value indicating whether view is valid.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.OnEnable">
+      <summary>
+            Occurs when designer view is initialized for first time.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.OnExtendedGUI_Coalescing">
+      <summary>
+            Extended property "Coalescing" for use within extended properties GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.OnExtendedGUI_ScaleMode">
+      <summary>
+            Extended property "Scale Mode" for use within extended properties GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.OnExtendedPropertiesGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of extended properties.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.OnFixedHeaderGUI">
+      <summary>
+            Occurs when header GUI is rendered and for GUI event handling.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.OnRename(System.String)">
+      <summary>
+            Occurs when "Rename" button is clicked.
+            </summary>
+      <param name="newName">New name for brush.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.RestoreHistoryState(Rotorz.Tile.Editor.HistoryManager.State)">
+      <summary>
+            Restore state from selection history.
+            </summary>
+      <param name="state">Selection history state.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.Section_MaterialMapper">
+      <summary>
+            Render and handle GUI events for material mapping.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.SetDirty">
+      <summary>
+            Set brush as dirty so that Unity can save changes.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDesignerView.ShowExtendedCustomPreview">
+      <summary>
+            Gets or sets a value indicating whether custom preview section should be shown
+            under extended properties.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDesignerView.ShowExtendedFlags">
+      <summary>
+            Gets or sets a value indicating whether flags should be shown under extended
+            properties.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushDesignerView.ShowExtendedOrientation">
+      <summary>
+            Gets or sets a value indicating whether extended orientation properties should
+            be shown.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushDesignerView.ShowSectionMaterialMapper">
+      <summary>
+            Indicates whether "Material Mapper:" section is shown in designer.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushDesignerView.UpdateHistoryState(Rotorz.Tile.Editor.HistoryManager.State)">
+      <summary>
+            Persist state of user interface for selection history.
+            </summary>
+      <param name="state">Selection history state.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushEditor">
+      <summary>
+            Default inspector for brush assets.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushEditor.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.BrushEditor</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushEditor.OnHeaderGUI"></member>
+    <member name="M:Rotorz.Tile.Editor.BrushEditor.OnInspectorGUI"></member>
+    <member name="M:Rotorz.Tile.Editor.BrushEditor.RenderStaticPreview(System.String,UnityEngine.Object[],System.Int32,System.Int32)"></member>
+    <member name="T:Rotorz.Tile.Editor.BrushEventHandler">
+      <summary>
+            Represents the method that will handle brush events.
+            </summary>
+      <param name="brush">The brush in question.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushListControl">
+      <summary>
+            Utility class for rendering brush list.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.#ctor(UnityEditor.EditorWindow)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rotorz.Tile.Editor.BrushListControl" /> class.
+            </summary>
+      <param name="window">Window that list belongs to.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.AdjustFilteringForBrush(Rotorz.Tile.Brush)">
+      <summary>
+            If necessary adjust filtering so that the specified brush can be seen.
+            </summary>
+      <param name="brush">The brush.</param>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BrushListControl.BrushClicked">
+      <summary>
+            Raised when brush button is clicked whilst mouse pointer is overlapping brush
+            button in list.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BrushListControl.BrushContextMenu">
+      <summary>
+            Raised to display context menu for a brush.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BrushListControl.BrushMouseDown">
+      <summary>
+            Raised whenever mouse button is pressed whilst mouse pointer is overlapping
+            brush button in list.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListControl.canShowHidden">
+      <summary>
+            Indicates whether hidden brushes can be shown.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListControl.dragThreshold">
+      <summary>
+            The number of pixels of mouse movement before dragging begins.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.Draw(System.Boolean)">
+      <summary>
+            Draw brush list and process its GUI events.
+            </summary>
+      <param name="showTabs">Indicates if tabs should be shown.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.Draw(UnityEngine.Rect)">
+      <summary>
+            Draw brush list and process its GUI events.
+            </summary>
+      <param name="position">Position of brush list.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.DrawToolbarButtons">
+      <summary>
+            Draw tab buttons when implementing a custom toolbar.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListControl.emptyLabel">
+      <summary>
+            Label used for <c>null</c> brush.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListControl.enableDragAndDrop">
+      <summary>
+            Indicates if drag and drop is enabled for brushes.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.ListArea">
+      <summary>
+            Gets total position of inner list area.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.ListPosition">
+      <summary>
+            Gets position of view area of list control.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.Model">
+      <summary>
+            Gets or sets model of brush list control.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.Position">
+      <summary>
+            Gets position of list control.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.RevealBrush(Rotorz.Tile.Brush)">
+      <summary>
+            Reveal a brush by switching view, altering filter options and
+            scrolling to brush as needed.
+            </summary>
+      <param name="brush">The brush.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.ScrollToBrush(Rotorz.Tile.Brush)">
+      <summary>
+            Scroll so that specified brush is visible.
+            </summary>
+      <param name="brush">The brush.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.ShowTilesetContextMenu">
+      <summary>
+            Gets or sets whether tileset context menu is available.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.ShowViewTabs">
+      <summary>
+            Gets or sets whether view tabs are shown.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListControl.SwitchViewForBrush(Rotorz.Tile.Brush)">
+      <summary>
+            If necessary switch to view where specified brush could be seen.
+            </summary>
+      <param name="brush">The brush.</param>
+      <returns>
+            A value of <c>true</c> if brush can be seen from a view; otherwise a value
+            of <c>false</c> if brush was invalid or cannot be seen from available views.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.VisibleViews">
+      <summary>
+            Gets or sets views that are visible.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListControl.Window">
+      <summary>
+            Gets window that list appears on.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushListModel">
+      <summary>
+            Model for brush list control which allows brushes to be filtered by
+            various criteria. It is also possible to access the collection of
+            filtered brushes.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListModel.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rotorz.Tile.Editor.BrushListModel" /> class.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListModel.ApplyCategoryFilter(Rotorz.Tile.Brush)">
+      <summary>
+            Applies category filtering to brush.
+            </summary>
+      <param name="brush">The brush.</param>
+      <returns>
+            A value of <c>true</c> if brush is visible; otherwise a value of <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListModel.ApplyFilter(System.Collections.Generic.List{Rotorz.Tile.Editor.BrushAssetRecord})">
+      <summary>
+            Apply filtering to brush database and output brushes to specified list.
+            </summary>
+      <param name="output">List will be replaced with records of filtered brushes.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.CategoryFiltering">
+      <summary>
+            Gets or sets type of category filtering.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.CategorySelection">
+      <summary>
+            Gets selection of categories which should be used to filter brushes when
+            <see cref="P:Rotorz.Tile.Editor.BrushListModel.CategoryFiltering" /> is set to a value of <see cref="F:Rotorz.Tile.Editor.CategoryFiltering.Selection" />.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.CustomCategorySelection">
+      <summary>
+            Gets custom selection of categories which should be used to filter
+            brushes when <see cref="P:Rotorz.Tile.Editor.BrushListModel.CategoryFiltering" /> is set to a value of <see cref="F:Rotorz.Tile.Editor.CategoryFiltering.CustomSelection" />.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.FilterAlwaysShowFavorite">
+      <summary>
+            Indicates whether favorite brushes should always be shown.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.FilterDescription">
+      <summary>
+            Gets description for filter label.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.FilterFavorite">
+      <summary>
+            Gets or sets whether only favorite brushes should be shown.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.FilterHideTilesetBrushes">
+      <summary>
+            Gets or sets whether tileset brushes should be hidden from "Brushes" and
+            "Master" view.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.HasQueryChanged">
+      <summary>
+            Gets or sets a value indicating whether brushes should be re-queried.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.HideAliasBrushes">
+      <summary>
+            Gets or sets whether alias brushes should be hidden.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.HideTilesetBrushes">
+      <summary>
+            Gets or sets whether tileset brushes should be hidden except in case of
+            tileset view where tileset brushes are always shown.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListModel.IndexOfRecord(Rotorz.Tile.Brush)">
+      <summary>
+            Finds zero-based index of record for specified brush.
+            </summary>
+      <param name="brush">Brush for which to locate record of.</param>
+      <returns>
+            Zero-based index of brush record; otherwise a value of <c>-1</c> if not found.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.MaximumZoomTileSize">
+      <summary>
+            Gets the maximum value of the <see cref="P:Rotorz.Tile.Editor.BrushListModel.ZoomTileSize" /> property.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.MinimumZoomTileSize">
+      <summary>
+            Gets the minimum value of the <see cref="P:Rotorz.Tile.Editor.BrushListModel.ZoomTileSize" /> property.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.Presentation">
+      <summary>
+            Gets or sets presentation of list view.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.Records">
+      <summary>
+            Gets list of brush records.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.ScrollPosition">
+      <summary>
+            Gets or sets scroll position of list view.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.SearchFilterText">
+      <summary>
+            Gets or sets search filter text. Brushes are only shown if their name
+            contains the filter text.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.SelectedBrush">
+      <summary>
+            Gets or sets the primary selected brush.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BrushListModel.SelectedBrushChanged">
+      <summary>
+            Raised when value of <see cref="P:Rotorz.Tile.Editor.BrushListModel.SelectedBrush" /> is changed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.SelectedBrushSecondary">
+      <summary>
+            Gets or sets the secondary selected brush.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BrushListModel.SelectedBrushSecondaryChanged">
+      <summary>
+            Raised when value of <see cref="P:Rotorz.Tile.Editor.BrushListModel.SelectedBrushSecondary" /> is changed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.SelectedTileset">
+      <summary>
+            Gets or sets the selected tileset.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BrushListModel.SelectedTilesetChanged">
+      <summary>
+            Raised when value of <see cref="P:Rotorz.Tile.Editor.BrushListModel.SelectedTileset" /> is changed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushListModel.SetCategorySelection(System.Int32)">
+      <summary>
+            Set category selection.
+            </summary>
+      <param name="categoryNumber">Number of category to select or a value of zero for uncategorized.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.ShowHidden">
+      <summary>
+            Gets or sets whether hidden brushes should be shown.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.View">
+      <summary>
+            Gets or sets list view.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BrushListModel.ViewChanged">
+      <summary>
+            Raised when value of <see cref="P:Rotorz.Tile.Editor.BrushListModel.View" /> is changed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.ZoomMode">
+      <summary>
+            Gets or sets zoom mode for list view.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushListModel.ZoomTileSize">
+      <summary>
+            Gets or sets tile size for custom zoom mode.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushListPresentation">
+      <summary>
+            The way in which brush list is presented.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListPresentation.List">
+      <summary>
+            Labelled brush icons.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListPresentation.Icons">
+      <summary>
+            Brush icons.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushListView">
+      <summary>
+            The type of list view.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListView.Brushes">
+      <summary>
+            Indicates that all brushes should be shown.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListView.Tileset">
+      <summary>
+            Indicates that tilesets should be shown.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListView.Master">
+      <summary>
+            Indicates that all master brushes should be shown.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushListZoomMode">
+      <summary>
+            Specifies how brush list should be zoomed.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListZoomMode.Automatic">
+      <summary>
+            Use tile size when a tileset is active, otherwise adjust zoom to make use of
+            the available space.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListZoomMode.BestFit">
+      <summary>
+            Adjust zoom to make use of the available space.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.BrushListZoomMode.Custom">
+      <summary>
+            Displays slider allowing user to manually adjust zoom.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BrushUtility">
+      <summary>
+            Utility functionality for interacting with brush assets.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.BrushUtility.AutomaticColliderType">
+      <summary>
+            Gets default collider type for default editor behavior.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.CleanupTilesetMeshes(Rotorz.Tile.Tileset)">
+      <summary>
+            Cleanup tileset mesh assets that are not referenced by tileset brushes.
+            </summary>
+      <param name="tileset">The tileset.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.CreateAliasBrush(System.String,Rotorz.Tile.Brush)">
+      <summary>
+            Creates new alias brush asset.
+            </summary>
+      <param name="name">Name of brush.</param>
+      <param name="target">Target for alias brush. Specify <c>null</c> for none.</param>
+      <returns>
+            The brush; or <c>null</c> if an error has occurred.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.CreateEmptyBrush(System.String)">
+      <summary>
+            Creates new empty brush asset.
+            </summary>
+      <param name="name">Name of brush.</param>
+      <returns>
+            The brush; or <c>null</c> if an error occurred.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.CreateOrientedBrush(System.String)">
+      <summary>
+            Creates new oriented brush asset.
+            </summary>
+      <param name="name">Name of brush.</param>
+      <returns>
+            The brush; or <c>null</c> if an error has occurred.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.CreateTilesetBrush(System.String,Rotorz.Tile.Tileset,System.Int32,Rotorz.Tile.InheritYesNo)">
+      <summary>
+            Creates new tileset brush asset.
+            </summary>
+      <param name="name">Name of brush.</param>
+      <param name="tileset">The tileset.</param>
+      <param name="tileIndex">Zero-based index of tile in tileset.</param>
+      <param name="procedural">Indicates if tileset brush should be procedural.</param>
+      <returns>
+            The brush; or <c>null</c> if an error has occurred.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.DeleteBrush(Rotorz.Tile.Brush)">
+      <summary>
+            Delete brush asset.
+            </summary>
+      <param name="brush">The brush.</param>
+      <returns>
+            A value of <c>true</c> when brush was deleted; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.DeleteTileset(Rotorz.Tile.Tileset,Rotorz.Tile.Editor.DeleteTilesetFlag)">
+      <summary>
+            Delete tileset and associated assets.
+            </summary>
+      <param name="tileset">The tileset.</param>
+      <param name="flags">Optional deletion flags.</param>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="tileset" /> is <c>null</c>.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+            If attempting to delete an unsuported type of tileset.
+            </exception>
+      <exception cref="T:System.Exception">
+            If tileset record was not found for specified tileset.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.DuplicateBrush(System.String,Rotorz.Tile.Brush)">
+      <summary>
+            Creates duplicate of an existing brush.
+            </summary>
+      <param name="name">Name of brush.</param>
+      <param name="existing">Existing brush that is to be duplicated.</param>
+      <returns>
+            The duplicate brush; or <c>null</c> if an error occurred.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.GetBrushAssetPath">
+      <summary>
+            Gets base path for the folder where new brush and tileset assets are created.
+            Folder is automatically created if it does not already exist.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.GetDescriptor``1">
+      <summary>
+            Get descriptor for specific type of brush.
+            </summary>
+      <typeparam name="TBrush">Type of brush.</typeparam>
+      <returns>
+            The brush descriptor; or <c>null</c> when if not registered.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.GetDescriptor(System.Type)">
+      <summary>
+            Get descriptor for specific type of brush.
+            </summary>
+      <param name="brushType">Type of brush.</param>
+      <returns>
+            The brush descriptor; or <c>null</c> when if not registered.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.RefreshPreview(Rotorz.Tile.Brush)">
+      <summary>
+            Refresh preview image for brush.
+            </summary>
+      <param name="brush">The brush.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.RegisterDescriptor``3">
+      <summary>
+            Register custom brush descriptor.
+            </summary>
+      <typeparam name="TBrush">Type of brush.</typeparam>
+      <typeparam name="TDesigner">Type of brush designer.</typeparam>
+      <typeparam name="TAliasDesigner">Type of alias brush designer.</typeparam>
+      <returns>
+            The brush descriptor.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.RegisterDescriptor``2">
+      <summary>
+            Register custom brush descriptor.
+            </summary>
+      <typeparam name="TBrush">Type of brush.</typeparam>
+      <typeparam name="TDesigner">Type of brush designer.</typeparam>
+      <returns>
+            The brush descriptor.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BrushUtility.RegisterDescriptor(Rotorz.Tile.Editor.BrushDescriptor)">
+      <summary>
+            Register custom brush descriptor.
+            </summary>
+      <param name="descriptor">Custom brush descriptor.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BuildEventDelegate">
+      <summary>
+            Build event delegate.
+            </summary>
+      <param name="context">Object that describes context of build process.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.BuildUtility">
+      <summary>
+            Utility functionality for optimising tile systems.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BuildUtility.BuildPrefab(Rotorz.Tile.TileSystem,System.String,System.String)">
+      <summary>
+            Build optimized prefab from a tile system.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="dataPath">Output path for generated data asset.</param>
+      <param name="prefabPath">Output path for generated prefab asset.</param>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BuildUtility.BuildPrefabComplete">
+      <summary>
+            Occurs after building prefab from tile system.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BuildUtility.BuildPrefabStart">
+      <summary>
+            Occurs before building prefab from tile system.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BuildUtility.BuildScene">
+      <summary>
+            Build all tile systems in scene.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BuildUtility.BuildSceneComplete">
+      <summary>
+            Occurs after scene has been built.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BuildUtility.BuildSceneStart">
+      <summary>
+            Occurs before building scene.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.BuildUtility.BuildTileSystem(Rotorz.Tile.TileSystem,Rotorz.Tile.Editor.ProgressDelegate)">
+      <summary>
+            Build tile system and apply stripping rules.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="progressHandler">Progress handler delegate.</param>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BuildUtility.FinalizeTileSystem">
+      <summary>
+            Occurs when tile system has been built and stripped.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.BuildUtility.PrepareTileSystem">
+      <summary>
+            Occurs when preparing to build and strip a tile system.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.CategoryFiltering">
+      <summary>
+            Type of category filtering.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.CategoryFiltering.None">
+      <summary>
+            Brushes should not be filtered by category.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.CategoryFiltering.Selection">
+      <summary>
+            Display all brushes which reside within category selection.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.CategoryFiltering.CustomSelection">
+      <summary>
+            Display all brushes which reside within custom category selection.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.CreateBrushWindow">
+      <summary>
+            Window for creating brushes.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateBrushWindow.DoDisable">
+      <summary>
+            Replacement for <c>OnDisable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateBrushWindow.DoEnable">
+      <summary>
+            Replacement for <c>OnEnable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateBrushWindow.DoGUI">
+      <summary>
+            Replacement for <c>OnGUI</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CreateBrushWindow.SelectedTabIndex">
+      <summary>
+            Gets or sets zero-based index of the selected brush creator tab.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CreateBrushWindow.SharedProperties">
+      <summary>
+            Gets collection of properties that are shared between all brush creators.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateBrushWindow.ShowWindow">
+      <summary>
+            Display the "Create Brush" window.
+            </summary>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateBrushWindow.ShowWindow``1">
+      <summary>
+            Display the "Create Brush" window with specific creator tab selected.
+            </summary>
+      <typeparam name="TCreator">Type of creator tab to display.</typeparam>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.CreateTileSystemWindow">
+      <summary>
+            Create tile system window.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateTileSystemWindow.DoDestroy">
+      <summary>
+            Replacement for <c>OnDestroy</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateTileSystemWindow.DoEnable">
+      <summary>
+            Replacement for <c>OnEnable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateTileSystemWindow.DoGUI">
+      <summary>
+            Replacement for <c>OnGUI</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CreateTileSystemWindow.ShowWindow">
+      <summary>
+            Display create tile system window.
+            </summary>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.CreateTileSystemWindow.TileSystemCreated">
+      <summary>
+            Occurs when a tile system is created using this window.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.CursorInfo">
+      <summary>
+            Defines texture and hotspot for custom cursor.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CursorInfo.#ctor(UnityEngine.Texture2D,UnityEngine.Vector2)">
+      <summary>
+            Initialize new <see cref="T:Rotorz.Tile.Editor.CursorInfo" />.
+            </summary>
+      <param name="texture">Cursor texture.</param>
+      <param name="hotspot">Active point of cursor.</param>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.CursorInfo.hotspot">
+      <summary>
+            Hotspot defines active point of cursor.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.CursorInfo.texture">
+      <summary>
+            Cursor texture.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.CursorInfo.type">
+      <summary>
+            Type of mouse cursor.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.CycleTool">
+      <summary>
+            Tool for cycling through variations of tiles and plops which are painted using
+            brushes which have multiple variations.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CycleTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.CycleTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CycleTool.CanCyclePlops">
+      <summary>
+            Gets or sets whether tool can also cycle through plop variations.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CycleTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CycleTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CycleTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CycleTool.InteractWithActiveSystemOnly">
+      <summary>
+            Gets or sets whether plops should only be cycled if they are associated with
+            the active tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.CycleTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CycleTool.OnAdvancedToolOptionsGUI">
+      <summary>
+            Raised to draw advanced options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CycleTool.OnRefreshToolEvent(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised allowing tool to adjust tool event before interacting with tool or
+            handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CycleTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.CycleTool.PrepareOptions(Rotorz.Settings.ISettingStore)">
+      <summary>
+            Invoked allowing tool to prepare options from the provided setting store.
+            </summary>
+      <param name="store">Setting store.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DefaultEditorObjectFactory">
+      <summary>
+            The default object factory that is used to create and destroy tile
+            game objects at design time when using the Unity editor.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DefaultEditorObjectFactory.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.DefaultEditorObjectFactory</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DefaultEditorObjectFactory.Current">
+      <summary>
+            Gets or sets the current factory for creating and destroying
+            tile game objects in editor.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DefaultEditorObjectFactory.DestroyObject(UnityEngine.GameObject,Rotorz.Tile.IObjectFactoryContext)">
+      <summary>
+            Destroy object instance.
+            </summary>
+      <param name="go">The unwanted object.</param>
+      <param name="context">An object describing the context of the game object
+            that is being destroyed. The context object is always specified, though
+            contained members may be <c>null</c>.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DefaultEditorObjectFactory.InstantiatePrefab(UnityEngine.GameObject,Rotorz.Tile.IObjectFactoryContext)">
+      <summary>
+            Create object instance from prefab.
+            </summary>
+      <param name="prefab">The prefab.</param>
+      <param name="context">An object describing the context of the prefab that is
+            being instantiated. The context object is always specified, though contained
+            members may be <c>null</c>.</param>
+      <returns>
+            Object instance or <c>null</c> if object could not be created.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DefineOrientationDelegate">
+      <summary>
+            Define orientation delegate.
+            </summary>
+      <param name="orientation">Bit representation of orientation.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DefineOrientationDelegate2">
+      <summary>
+            Define orientation delegate.
+            </summary>
+      <param name="orientation">Bit representation of orientation.</param>
+      <param name="rotationalSymmetry">Indicates whether orientation will have rotation symmetry.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DefineOrientationWindow">
+      <summary>
+            User interface for selecting an orientation.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DefineOrientationWindow.Orientation">
+      <summary>
+            Gets or sets bit representation of defined orientation.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DefineOrientationWindow.RotationalSymmetry">
+      <summary>
+            Gets or sets whether rotational symmetry is selected.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DefineOrientationWindow.ShowWindow(Rotorz.Tile.Editor.DefineOrientationDelegate)">
+      <summary>
+            Display orientation selection window.
+            </summary>
+      <param name="callback">Invoked when orientation is defined.</param>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DefineOrientationWindow.ShowWindow(Rotorz.Tile.Editor.DefineOrientationDelegate2)">
+      <summary>
+            Display orientation selection window.
+            </summary>
+      <param name="callback">Invoked when orientation is defined.</param>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DefineOrientationWindow.ShowWindow(System.String,Rotorz.Tile.Editor.DefineOrientationDelegate)">
+      <summary>
+            Display define orientation selection window with custom title.
+            </summary>
+      <param name="title">Title for window.</param>
+      <param name="callback">Invoked when orientation is defined.</param>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DefineOrientationWindow.ShowWindow(System.String,Rotorz.Tile.Editor.DefineOrientationDelegate2)">
+      <summary>
+            Display define orientation selection window with custom title.
+            </summary>
+      <param name="title">Title for window.</param>
+      <param name="callback">Invoked when orientation is defined.</param>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DeleteTilesetFlag">
+      <summary>
+            Flags that can be specified when deleting a tileset.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.DeleteTilesetFlag.DeleteTexture">
+      <summary>
+            Delete tileset texture asset.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.DeleteTilesetFlag.DeleteMaterial">
+      <summary>
+            Delete tileset material asset.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.DeleteTilesetFlag.DeleteMeshAssets">
+      <summary>
+            Delete non-procedural mesh assets.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DesignerView">
+      <summary>
+            Base class for designer view.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.DesignerView</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.AddItemsToMenu(UnityEditor.GenericMenu)">
+      <summary>
+            Add items to designer menu.
+            </summary>
+      <param name="menu">The menu.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.BeginChangeCheck">
+      <summary>
+            Begin checking for changes to input controls.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.BeginExtendedProperties">
+      <summary>
+            Begin extended properties GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.BeginFixedSection">
+      <summary>
+            Marks start of fixed section that ignores effect of horizontal scrolling.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.BeginView">
+      <summary>
+            Begin view GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.CreateHistoryState">
+      <summary>
+            Create state for selection history.
+            </summary>
+      <returns>
+            Selection history state.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerView.DisplayExtendedProperties">
+      <summary>
+            Gets or sets whether extended properties should be displayed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.DrawMenuButton(UnityEngine.Rect,System.String)">
+      <summary>
+            Use to draw menu button somewhere within designer window.
+            </summary>
+      <param name="position">Position of button in space of editor window.</param>
+      <param name="tooltip">Tooltip text.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.EndChangeCheck">
+      <summary>
+            End checking for change to input controls.
+            </summary>
+      <returns>
+            A value of <c>true</c> if changes were detected; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.EndExtendedProperties">
+      <summary>
+            End extended properties GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.EndFixedSection">
+      <summary>
+            Marks end of fixed section.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.EndView">
+      <summary>
+            End view GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.FixedTitleFoldout(System.Boolean,System.String)">
+      <summary>
+            Foldout title that ignores effect of horizontal scrolling.
+            </summary>
+      <param name="foldout">Current state of foldout.</param>
+      <param name="label">Label of foldout header.</param>
+      <returns>
+            A value of <c>true</c> when foldout is expanded; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.Focus">
+      <summary>
+            Focus editor window.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerView.HasExtendedProperties">
+      <summary>
+            Gets a value indicating whether designer view has extended properties.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerView.IsValid">
+      <summary>
+            Gets a value indicating whether view is valid.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.OnDisable">
+      <summary>
+            Occurs when designer view is no longer required.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.OnEnable">
+      <summary>
+            Occurs when designer view is initialized for first time.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.OnExtendedPropertiesGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of extended properties.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.OnFixedHeaderGUI">
+      <summary>
+            Occurs when header GUI is rendered and for GUI event handling.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.OnGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of designer.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.Repaint">
+      <summary>
+            Repaint editor window.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.RestoreHistoryState(Rotorz.Tile.Editor.HistoryManager.State)">
+      <summary>
+            Restore state from selection history.
+            </summary>
+      <param name="state">Selection history state.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.SetDirty">
+      <summary>
+            Set target asset as dirty so that Unity can save changes.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.UpdateHistoryState(Rotorz.Tile.Editor.HistoryManager.State)">
+      <summary>
+            Persist state of user interface for selection history.
+            </summary>
+      <param name="state">Selection history state.</param>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.DesignerView.viewPosition">
+      <summary>
+            Position of designer view.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.DesignerView.viewScrollPosition">
+      <summary>
+            Scrolling offset for designer GUI.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerView.Window">
+      <summary>
+            Gets or sets parent window of brush designer.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DesignerView.HistoryState">
+      <summary>
+            Represents a state in history for designer selection.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.HistoryState.#ctor(Rotorz.Tile.IDesignableObject)">
+      <summary>
+            Initialize a new instance of the <see cref="T:Rotorz.Tile.Editor.DesignerView.HistoryState" /> class.
+            </summary>
+      <param name="selected">Selected designable object.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerView.HistoryState.ExtendedPropertiesScrollPosition">
+      <summary>
+            Gets or sets scroll position of extended properties panel.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.HistoryState.GetExpandedSectionState(System.String)">
+      <summary>
+            Gets state of expanded section.
+            </summary>
+      <param name="name">Unique name of section.</param>
+      <returns>
+            A value of <c>true</c> if section is expanded; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerView.HistoryState.ScrollPosition">
+      <summary>
+            Gets or sets scroll position of main designer view.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerView.HistoryState.SetExpandedSectionState(System.String,System.Boolean)">
+      <summary>
+            Set state of expanded section.
+            </summary>
+      <param name="name">Unique name of section.</param>
+      <param name="expanded">Indicates whether section is expanded or not.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.DesignerWindow">
+      <summary>
+            Brush designer window.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerWindow.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.DesignerWindow</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerWindow.DoDestroy">
+      <summary>
+            Replacement for <c>OnDestroy</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerWindow.DoDisable">
+      <summary>
+            Replacement for <c>OnDisable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerWindow.DoEnable">
+      <summary>
+            Replacement for <c>OnEnable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerWindow.DoGUI">
+      <summary>
+            Replacement for <c>OnGUI</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerWindow.History">
+      <summary>
+            Gets selection history.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerWindow.IsLocked">
+      <summary>
+            Gets or sets whether designer selection is locked.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerWindow.RepaintWindow">
+      <summary>
+            Repaints the designer window.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.DesignerWindow.SelectedObject">
+      <summary>
+            Gets or sets the object that is currently being designed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.DesignerWindow.ShowWindow">
+      <summary>
+            Display the brush designer window.
+            </summary>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.FillTool">
+      <summary>
+            Flood fill tool.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.FillTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.FillTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.FillTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.FillTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.FillTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.FillTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.FillTool.MaximumFillCount">
+      <summary>
+            Gets or sets maximum number of tiles which can be filled at once.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.FillTool.OnAdvancedToolOptionsGUI">
+      <summary>
+            Raised to draw advanced options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.FillTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.FillTool.OnToolOptionsGUI">
+      <summary>
+            Raised to draw options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.FillTool.PrepareOptions(Rotorz.Settings.ISettingStore)">
+      <summary>
+            Invoked allowing tool to prepare options from the provided setting store.
+            </summary>
+      <param name="store">Setting store.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.FillTool.SupportsPaintAroundExistingTiles">
+      <summary>
+            Gets a value indicating whether this tool supports the "Paint Around Existing Tiles" feature.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.HistoryManager">
+      <summary>
+            History manager can be used to implement navigation history or even to implement
+            a custom undo/redo system.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.HistoryManager.AddToRecent(Rotorz.Tile.IHistoryObject)">
+      <summary>
+            Add object to recently accessed list.
+            </summary>
+      <param name="recent">Recent object.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.HistoryManager.Advance">
+      <summary>
+            Advance to next state in history.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.CanGoBack">
+      <summary>
+            Gets a value indicating whether it is possible to navigate backward by
+            at least one state in history.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.CanGoForward">
+      <summary>
+            Gets a value indicating whether it is possible to navigate forward by
+            at least one state in history.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.HistoryManager.Cleanup">
+      <summary>
+            Removes references to objects that have been destroyed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.HistoryManager.Clear">
+      <summary>
+            Clear all recent history.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.Context">
+      <summary>
+            Gets context of history manager.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.HistoryManager.GoBack">
+      <summary>
+            Go back to most recent state in navigation history.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.HistoryManager.GoForward">
+      <summary>
+            Go forward to most recent state in navigation history.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.IsNavigating">
+      <summary>
+            Gets a value indicating whether history manager is navigating forward
+            or backward by one state. This can be used to avoid adding existing
+            state into back list.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.MaximumHistoryCount">
+      <summary>
+            Gets or sets maximum number of states to keep in history.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.MaximumRecentCount">
+      <summary>
+            Gets or sets maximum number of recent entries.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.PeekBack">
+      <summary>
+            Gets the next back state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.PeekForward">
+      <summary>
+            Gets the next forward state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.Recent">
+      <summary>
+            Gets a read-only collection of recently selected objects.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.HistoryManager.State">
+      <summary>
+            Represents a state in selection history.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.HistoryManager.State.#ctor(Rotorz.Tile.IHistoryObject)">
+      <summary>
+            Initialize new <see cref="T:Rotorz.Tile.Editor.HistoryManager.State" /> instance for a selected object.
+            </summary>
+      <param name="selected">Selected object.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.HistoryManager.State.Object">
+      <summary>
+            Gets selected object.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.IBuildContext">
+      <summary>
+            Interface that describes context when building a tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IBuildContext.CombineChunkHeight">
+      <summary>
+            Gets the height of a combined chunk.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IBuildContext.CombineChunkWidth">
+      <summary>
+            Gets the width of a combined chunk.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IBuildContext.Method">
+      <summary>
+            Gets the build combine method.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IBuildContext.TileSystem">
+      <summary>
+            Gets the tile system that is being built.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IBuildContext.TileSystemGameObject">
+      <summary>
+            Gets game object of tile system that is being built.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.IHistoryManagerContext">
+      <summary>
+            Context of a history manager instance.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.IHistoryManagerContext.OnNavigateBack(Rotorz.Tile.Editor.HistoryManager.State)">
+      <summary>
+            Invoked upon navigating back one state in history.
+            </summary>
+      <param name="state">New histoty state.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.IHistoryManagerContext.OnNavigateForward(Rotorz.Tile.Editor.HistoryManager.State)">
+      <summary>
+            Invoked upon navigating forward one state in history.
+            </summary>
+      <param name="state">New histoty state.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.IHistoryManagerContext.UpdateCurrentState">
+      <summary>
+            Finalize current state ready for history.
+            </summary>
+      <returns>
+            Current state.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.IToolContext">
+      <summary>
+            Describes context that tool is being used within.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IToolContext.TileSystem">
+      <summary>
+            Gets the tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IToolContext.Tool">
+      <summary>
+            Gets the current tool.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.IToolContext.ToolManager">
+      <summary>
+            Gets the tool manager.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.LineTool">
+      <summary>
+            Line tool for painting lines of tiles.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.LineTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.LineTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.LineTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.LineTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.LineTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.LineTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.LineTool.OnPaint(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised by <see cref="M:Rotorz.Tile.Editor.LineTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)" /> to perform painting upon releasing left or right
+            mouse button when a tile has been anchored on the active tile system.
+            </summary>
+      <param name="e">Tool event data.</param>
+      <param name="context">Context that tool is being used in.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.LineTool.OnRefreshToolEvent(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised allowing tool to adjust tool event before interacting with tool or
+            handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.LineTool.OnSceneGUI(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.LineTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.NozzleIndicator">
+      <summary>
+            Specifies how nozzle indicator should be presented when interacting
+            with tiles using the editor.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.NozzleIndicator.Automatic">
+      <summary>
+            Chooses indicator mode based upon selected brush.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.NozzleIndicator.Wireframe">
+      <summary>
+            Wireframe representation.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.NozzleIndicator.Flat">
+      <summary>
+            Flat representation.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.OrientedBrushDesigner">
+      <summary>
+            Designer for <see cref="P:Rotorz.Tile.Editor.OrientedBrushDesigner.OrientedBrush" /> brushes.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.OrientedBrushDesigner</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.DrawSecondaryMenuButton(UnityEngine.Rect)">
+      <summary>
+            Draw secondary menu button.
+            </summary>
+      <param name="position">Position of button in window.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.EndExtendedProperties">
+      <summary>
+            End extended properties GUI.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.InsertNewVariation(Rotorz.Tile.BrushOrientation,System.Int32,UnityEngine.Object)">
+      <summary>
+            Insert new variation into orientation.
+            </summary>
+      <param name="orientation">Orientation to add to.</param>
+      <param name="insertIndex">Zero-based index for new variation in variations
+            collection. This value is automatically clamped if out of range.</param>
+      <param name="variation">The new variation.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.OnEnable">
+      <summary>
+            Occurs when designer view is initialized for first time.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.OnExtendedPropertiesGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of extended properties.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.OnGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of designer.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.OrientedBrushDesigner.OrientedBrush">
+      <summary>
+            Gets the oriented brush that is being edited.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.RemoveOrientation(Rotorz.Tile.BrushOrientation)">
+      <summary>
+            Remove orientation from brush.
+            </summary>
+      <param name="orientation">Orientation to remove from.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.Section_Orientations">
+      <summary>
+            Render orientations for editing.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.OrientedBrushDesigner.ShowDefineOrFindOrientationPopup">
+      <summary>
+            Displays popup allowing user to specify an orientation to find or define.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.PaintTool">
+      <summary>
+            Standard tool for painting tiles. This tool also provides various shortcuts
+            allowing users to draw lines and cycle between tile variations without
+            switching to the dedicated tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.PaintTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintTool.IsLineModeActive">
+      <summary>
+            Gets a value indicating whether line drawing mode is currently active for paint tool.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintTool.IsTargetPointConstrained">
+      <summary>
+            Gets a value indicating whether tool selection should be constrained for
+            two-point operations. For instance, constrain line drawing to horizontal/vertical
+            lines or rectangle drawing to squares.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintTool.OnPaint(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised by <see cref="M:Rotorz.Tile.Editor.PaintTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)" /> to perform painting upon pressing left or right
+            mouse button and then occurs again each time the mouse is dragged.
+            </summary>
+      <param name="e">Tool event data.</param>
+      <param name="context">Context that tool is being used in.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintTool.OnRefreshToolEvent(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised allowing tool to adjust tool event before interacting with tool or
+            handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintTool.OnSceneGUI(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.PaintToolBase">
+      <summary>
+            Base class for painting tools which provides easy access to painting arguments
+            from tool options along with default gizmo drawing functionality.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.PaintToolBase</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.PaintToolBase.anchorIndex">
+      <summary>
+            Anchored index of previously painted tile.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.PaintToolBase.anchorSystem">
+      <summary>
+            Tile system which contains anchored tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintToolBase.DefaultNozzleSize">
+      <summary>
+            Gets default size of nozzle.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.DrawNozzleLine(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.TileIndex)">
+      <summary>
+            Draw line between two tile indices taking nozzle area into consideration.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="from">Index of first tile.</param>
+      <param name="to">Index of second tile.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.DrawPaintAroundExistingTilesOption">
+      <summary>
+            Draw "Paint Around Existing Tiles" toggle.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.DrawStandardOptionsGUI">
+      <summary>
+            Draw standard options GUI using layout engine. This method should be called
+            within a horizontally flowing layout.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintToolBase.EnableVariationShifting">
+      <summary>
+            Gets or sets whether variations can be shifted.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.GetPaintingArgs(Rotorz.Tile.Brush)">
+      <summary>
+            Gets painting arguments for tool. This method can be overridden to take further
+            control over the way in which tiles are painted.
+            </summary>
+      <param name="brush">Brush to paint with or specify <c>null</c> to erase existing tiles.</param>
+      <returns>
+            Painting arguments.
+            </returns>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.PaintToolBase.lastPaintIndex">
+      <summary>
+            Index of last tile which was painted.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintToolBase.NozzleRadius">
+      <summary>
+            Gets or sets radius of nozzle.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintToolBase.NozzleSize">
+      <summary>
+            Gets or sets size of nozzle.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.OnCheckKeyboardShortcuts">
+      <summary>
+            Raised when checking for keyboard shortcuts when this is the active tool. This method
+            occurs within the context of <c>OnGUI</c> and thus can use <c>Event.current</c>.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.OnDrawGizmos(Rotorz.Tile.TileSystem)">
+      <summary>
+            Raised to draw custom gizmos within scene view.
+            </summary>
+      <param name="system">Active tile system.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.OnEnable">
+      <summary>
+            Raised when tool becomes active.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.OnToolInactive(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used but is inactive.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.OnToolOptionsGUI">
+      <summary>
+            Raised to draw options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.PaintLine(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.TileIndex,Rotorz.Tile.Brush)">
+      <summary>
+            Paint line of tiles using tool configuration.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="from">Index of tile at start of line.</param>
+      <param name="to">Index of tile at end of line.</param>
+      <param name="brush">Brush to paint with or specify <c>null</c> to erase existing tiles.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.PaintPoint(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.Brush)">
+      <summary>
+            Paint single tile using tool configuration.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="index">Index of tile to paint.</param>
+      <param name="brush">Brush to paint with or specify <c>null</c> to erase existing tiles.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.PreFilterLocalPoint(UnityEngine.Vector3)">
+      <summary>
+            Pre-filter mouse position (in local space of active tile system) ready for
+            handling tool event. This is useful for switching between grid cell and point
+            alignment for even nozzle sizes.
+            </summary>
+      <param name="localPoint">Local point of mouse on tile system plane.</param>
+      <returns>
+            Modified local point.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.PrepareOptions(Rotorz.Settings.ISettingStore)">
+      <summary>
+            Invoked allowing tool to prepare options from the provided setting store.
+            </summary>
+      <param name="store">Setting store.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.PreRandomizeVariation(Rotorz.Tile.Brush,System.Int32)">
+      <summary>
+            Pre-randomize tile variation for specific orientation.
+            </summary>
+      <param name="brush">Brush which is being used to paint tile.</param>
+      <param name="orientationMask">Bitmask identifying orientation of target tile.</param>
+      <returns>
+            Zero-based index of tile variation.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PaintToolBase.RandomizeVariationShift">
+      <summary>
+            Randomize shift of variation for next tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintToolBase.SupportsPaintAroundExistingTiles">
+      <summary>
+            Gets a value indicating whether this tool supports the "Paint Around Existing Tiles" feature.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PaintToolBase.TemporarilyDisableVariationShifting">
+      <summary>
+            Gets or sets whether variation shifting interface should be temporarily
+            disabled to avoid confusion in cases where shifting is unavailable.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.PickerTool">
+      <summary>
+            Tool for picking the brush that was used to paint an existing tile.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PickerTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.PickerTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PickerTool.CanPickPlops">
+      <summary>
+            Gets or sets whether tool can pick brush from plops.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PickerTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PickerTool.GetNozzleIndicator(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.BrushNozzle)">
+      <summary>
+            Gets indicator that should be drawn to represent tool nozzle.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="index">Index of tile.</param>
+      <param name="nozzle">Type of brush nozzle.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PickerTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PickerTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PickerTool.InteractWithActiveSystemOnly">
+      <summary>
+            Gets or sets whether brush should only be picked from plops that are
+            associated with the active tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PickerTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PickerTool.OnAdvancedToolOptionsGUI">
+      <summary>
+            Raised to draw advanced options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PickerTool.OnEnable">
+      <summary>
+            Raised when tool becomes active.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PickerTool.OnRefreshToolEvent(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised allowing tool to adjust tool event before interacting with tool or
+            handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PickerTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PickerTool.PrepareOptions(Rotorz.Settings.ISettingStore)">
+      <summary>
+            Invoked allowing tool to prepare options from the provided setting store.
+            </summary>
+      <param name="store">Setting store.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.PlopTool">
+      <summary>
+            Tool for plopping tiles onto the plane of a tile system without actually adding
+            them to the tile data structure.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.PlopTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.DisableCycleFunction">
+      <summary>
+            Gets or sets whether cycle function of plop tool should be disabled thus
+            making it possible to rapidly plop overlapping tiles without having to hold
+            the <b>Ctrl</b> key.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.HideWireframeOutline">
+      <summary>
+            Gets or sets whether wireframe outline should be shown around immediate
+            preview or whether to highlight an existing plop.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.InteractWithActiveSystemOnly">
+      <summary>
+            Gets or sets whether tool should only be able to cycle and erase plops that
+            are associated with the active tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.OnAdvancedToolOptionsGUI">
+      <summary>
+            Raised to draw advanced options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.OnDrawGizmos(Rotorz.Tile.TileSystem)">
+      <summary>
+            Raised to draw custom gizmos within scene view.
+            </summary>
+      <param name="system">Active tile system.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.OnPaint(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised by <see cref="M:Rotorz.Tile.Editor.PlopTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)" /> to perform painting upon pressing left or right mouse button.
+            </summary>
+      <param name="e">Tool event data.</param>
+      <param name="context">Context that tool is being used in.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.OnRefreshToolEvent(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised allowing tool to adjust tool event before interacting with tool or
+            handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.OnSceneGUI(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.OnToolOptionsGUI">
+      <summary>
+            Raised to draw options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.PlopGroupName">
+      <summary>
+            Gets or sets name of game object for which to group plops inside the active
+            tile system when <see cref="P:Rotorz.Tile.Editor.PlopTool.PlopLocation" /> is set to a value of <see cref="F:Rotorz.Tile.Editor.PlopTool.Location.GroupInsideTileSystem" />.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.PlopTool.PlopLocation">
+      <summary>
+            Gets or sets location for 'plopped' objects (where they are parented).
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.PlopTool.PrepareOptions(Rotorz.Settings.ISettingStore)">
+      <summary>
+            Invoked allowing tool to prepare options from the provided setting store.
+            </summary>
+      <param name="store">Setting store.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.PlopTool.Location">
+      <summary>
+            Indicates location for painted tile objects.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.PlopTool.Location.GroupInsideTileSystem">
+      <summary>
+            Groups within empty "Plops" object inside tile system.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.PlopTool.Location.ChildOfTileSystem">
+      <summary>
+            Make immediate child of tile system.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.PlopTool.Location.SceneRoot">
+      <summary>
+            Simply place within root top-level of scene.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.PrefabHandler">
+      <summary>
+            Prefab event handler.
+            </summary>
+      <param name="prefab">Reference to prefab object.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ProgressDelegate">
+      <summary>
+            Progress delegate.
+            </summary>
+      <param name="title">Status title.</param>
+      <param name="message">Status message.</param>
+      <param name="progress">A number ranging between 0.0 and 1.0 representing
+            the level of progress.</param>
+      <returns>
+            A value of <c>true</c> if processing should be cancelled; otherwise, a
+            value of <c>false</c>.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ProjectSettings">
+      <summary>
+            Project wide settings for Rotorz Tile System.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ProjectSettings.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rotorz.Tile.Editor.ProjectSettings" /> class.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ProjectSettings.AddCategory(System.String)">
+      <summary>
+            Adds a new brush category.
+            </summary>
+      <param name="label">Label for category.</param>
+      <returns>
+            The unique category identifier.
+            </returns>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="label" /> is <c>null</c>.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+            If <paramref name="label" /> is an empty string.
+            </exception>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.BrushesFolderRelativePath">
+      <summary>
+            Gets or sets path of the folder where new brushes and tilesets are created
+            relative to the 'Assets' folder. This must be a sub-folder somewhere inside
+            'Assets'.
+            </summary>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="value" /> is <c>null</c>.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+            If <paramref name="value" /> is an invalid path.
+            </exception>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.CategoryIds">
+      <summary>
+            Gets the collection of brush category ids.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.CategoryLabels">
+      <summary>
+            Gets the collection of brush category labels.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.CategoryRevisionCounter">
+      <summary>
+            The value of this counter increments when category changes are detected.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ProjectSettings.CollapseAllSections">
+      <summary>
+            Collapses all expandable sections in project settings inspector.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ProjectSettings.DeleteCategory(System.Int32)">
+      <summary>
+            Deletes an unwanted brush category.
+            </summary>
+      <param name="id">Identifies the category.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+            If <paramref name="id" /> is zero or a negative value.
+            </exception>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.ExpandBrushCategoriesSection">
+      <summary>
+            Gets or sets a value indicating whether the "Brush Categories" section of the
+            project settings inspector is expanded.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.ExpandTilesetCreatorSection">
+      <summary>
+            Gets or sets a value indicating whether the "Tileset Creator" section of the
+            project settings inspector is expanded.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.FlagLabels">
+      <summary>
+            Gets or sets the collection of labels for the 16 general purpose brush flags.
+            </summary>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="value" /> is <c>null</c>.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+            If <paramref name="value" /> does not contain 16 strings.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ProjectSettings.GetCategoryLabel(System.Int32)">
+      <summary>
+            Gets label of a specific category.
+            </summary>
+      <param name="id">Identifies the category.</param>
+      <returns>
+            The category label.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.Instance">
+      <summary>
+            Gets the <see cref="T:Rotorz.Tile.Editor.ProjectSettings" /> instance.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.OpaqueTilesetMaterialTemplate">
+      <summary>
+            Gets or sets the material that will be used as a template when new opaque
+            tileset materials are created. A value of <c>null</c> specifies that the
+            default is to be assumed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ProjectSettings.SetCategoryLabel(System.Int32,System.String)">
+      <summary>
+            Sets label of a specific category.
+            </summary>
+      <param name="id">Identifies the category.</param>
+      <param name="label">The new category label.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+            If <paramref name="id" /> is zero or a negative value.
+            </exception>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="label" /> is <c>null</c>.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+            If <paramref name="label" /> is an empty string.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ProjectSettings.SortCategoriesByLabel(System.Boolean)">
+      <summary>
+            Sorts brush categories by label either ascending or descending.
+            </summary>
+      <param name="ascending">A value of <c>true</c> indicates that categories
+            should be sorted in ascending order; otherwise, categories will be sorted
+            in descending order.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ProjectSettings.TransparentTilesetMaterialTemplate">
+      <summary>
+            Gets or sets the material that will be used as a template when new transparent
+            tileset materials are created. A value of <c>null</c> specifies that the
+            default is to be assumed.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.RectangleTool">
+      <summary>
+            Rectangle tool for painting filled or outlined rectangles of tiles.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RectangleTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.RectangleTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RectangleTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RectangleTool.DrawNozzleIndicator(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.BrushNozzle,System.Int32)">
+      <summary>
+            Draw nozzle indicator to provide user with feedback by indicating position
+            of active tile in scene view.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="index">Index of tile.</param>
+      <param name="nozzle">Type of brush nozzle.</param>
+      <param name="nozzleSize">Size of nozzle where <c>1</c> is a single tile.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RectangleTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RectangleTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RectangleTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RectangleTool.OnPaint(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised by <see cref="M:Rotorz.Tile.Editor.RectangleTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)" /> to perform painting upon releasing left or right
+            mouse button when a tile has been anchored on the active tile system.
+            </summary>
+      <param name="e">Tool event data.</param>
+      <param name="context">Context that tool is being used in.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RectangleTool.OnRefreshToolEvent(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised allowing tool to adjust tool event before interacting with tool or
+            handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RectangleTool.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RectangleTool.OnToolOptionsGUI">
+      <summary>
+            Raised to draw options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.RotorzEditorGUI">
+      <summary>
+            Provides additional editor GUI utility functionality.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BigButton(UnityEngine.GUIContent,UnityEngine.GUILayoutOption[])">
+      <summary>
+            Output big style button.
+            </summary>
+      <param name="label">Label text for button.</param>
+      <param name="options">
+            An optional list of layout options that specify extra layouting properties.
+            Any values passed in here will override settings defined by the style.
+            <para>See: <a href="http://docs.unity3d.com/Documentation/ScriptReference/GUILayout.html">http://docs.unity3d.com/Documentation/ScriptReference/GUILayout.html</a></para></param>
+      <returns>
+            A value of <c>true</c> indicates that button was pressed.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BigButtonPadded(UnityEngine.GUIContent)">
+      <summary>
+            Output big style button with extra padding.
+            </summary>
+      <param name="label">Label text for button.</param>
+      <returns>
+            A value of <c>true</c> indicates that button was pressed.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BrushCategoryField(System.Int32,UnityEngine.GUILayoutOption[])">
+      <summary>
+            Make a brush category selection field.
+            </summary>
+      <param name="categoryId">Brush category shown in field.</param>
+      <param name="options">An optional list of layout options that specify extra
+            layouting properties. Any values passed in here will override settings defined
+            by the style. Please refer to Unity documentation for further details.</param>
+      <returns>
+            Brush category selected by user.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BrushCategoryField(System.String,System.Int32,UnityEngine.GUILayoutOption[])">
+      <summary>
+            Make a brush category selection field.
+            </summary>
+      <param name="label">Label in front of field.</param>
+      <param name="categoryId">Brush category shown in field.</param>
+      <param name="options">
+            An optional list of layout options that specify extra layouting properties.
+            Any values passed in here will override settings defined by the style.
+            Please refer to Unity documentation for further details.
+            </param>
+      <returns>
+            Brush category selected by user.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BrushCategoryField(UnityEngine.GUIContent,System.Int32,UnityEngine.GUILayoutOption[])">
+      <summary>
+            Make a brush category selection field.
+            </summary>
+      <param name="label">Label in front of field.</param>
+      <param name="categoryId">Brush category shown in field.</param>
+      <param name="options">
+            An optional list of layout options that specify extra layouting properties.
+            Any values passed in here will override settings defined by the style.
+            Please refer to Unity documentation for further details.
+            </param>
+      <returns>
+            Brush category selected by user.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BrushField(Rotorz.Tile.Brush,System.Boolean,System.Boolean,UnityEngine.GUILayoutOption[])">
+      <summary>
+            Brush selection field for automatic layout.
+            </summary>
+      <param name="brush">The brush the field shows.</param>
+      <param name="allowAlias">Indicates whether alias brushes can be selected.</param>
+      <param name="allowMaster">Indicates whether master brushes can be selected.</param>
+      <param name="options">
+            An optional list of layout options that specify extra layouting properties.
+            Any values passed in here will override settings defined by the style.
+            <para>See: <a href="http://docs.unity3d.com/Documentation/ScriptReference/GUILayout.html">http://docs.unity3d.com/Documentation/ScriptReference/GUILayout.html</a></para></param>
+      <returns>
+            The brush that has been set by the user.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BrushField(System.String,Rotorz.Tile.Brush,System.Boolean,System.Boolean,UnityEngine.GUILayoutOption[])">
+      <summary>
+            Brush selection field with label for automatic layout.
+            </summary>
+      <param name="label">Optional label in front of the field.</param>
+      <param name="brush">The brush the field shows.</param>
+      <param name="allowAlias">Indicates whether alias brushes can be selected.</param>
+      <param name="allowMaster">Indicates whether master brushes can be selected.</param>
+      <param name="options">
+            An optional list of layout options that specify extra layouting properties.
+            Any values passed in here will override settings defined by the style.
+            <para>See: <a href="http://docs.unity3d.com/Documentation/ScriptReference/GUILayout.html">http://docs.unity3d.com/Documentation/ScriptReference/GUILayout.html</a></para></param>
+      <returns>
+            The brush that has been set by the user.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BrushField(UnityEngine.Rect,Rotorz.Tile.Brush,System.Boolean,System.Boolean)">
+      <summary>
+            Brush selection field for manual position.
+            </summary>
+      <param name="position">Position for brush field control.</param>
+      <param name="brush">The brush the field shows.</param>
+      <param name="allowAlias">Indicates whether alias brushes can be selected.</param>
+      <param name="allowMaster">Indicates whether master brushes can be selected.</param>
+      <returns>
+            The brush that has been set by the user.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.BrushField(UnityEngine.Rect,System.String,Rotorz.Tile.Brush,System.Boolean,System.Boolean)">
+      <summary>
+            Brush selection field with label for manual position.
+            </summary>
+      <param name="position">Position for brush field control.</param>
+      <param name="label">Optional label in front of the field.</param>
+      <param name="brush">The brush the field shows.</param>
+      <param name="allowAlias">Indicates whether alias brushes can be selected.</param>
+      <param name="allowMaster">Indicates whether master brushes can be selected.</param>
+      <returns>
+            The brush that has been set by the user.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RotorzEditorGUI.BrushPickerControlID">
+      <summary>
+            Gets ID of the control which is associated with the brush picker window.
+            </summary>
+      <returns>
+            Unique control ID.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RotorzEditorGUI.BrushPickerSelectedBrush">
+      <summary>
+            Gets or sets brush which is selected in brush picker window.
+            </summary>
+      <returns>
+            The selected <see cref="T:Rotorz.Tile.Brush" /> instance.
+            </returns>
+      <exception cref="T:System.InvalidOperationException">
+            If attempting to access property when brush picker is not shown.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.DrawBrushPreview(UnityEngine.Rect,Rotorz.Tile.Brush)">
+      <summary>
+            Draw brush preview to GUI.
+            </summary>
+      <param name="output">Output position of brush preview.</param>
+      <param name="brush">The brush.</param>
+      <param name="selected">Indicates if preview is highlighted.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.DrawBrushPreview(UnityEngine.Rect,Rotorz.Tile.Brush,System.Boolean)">
+      <summary>
+            Draw brush preview to GUI.
+            </summary>
+      <param name="output">Output position of brush preview.</param>
+      <param name="brush">The brush.</param>
+      <param name="selected">Indicates if preview is highlighted.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.DrawBrushPreview(UnityEngine.Rect,Rotorz.Tile.Editor.BrushAssetRecord)">
+      <summary>
+            Draw brush preview to GUI.
+            </summary>
+      <param name="output">Output position of brush preview.</param>
+      <param name="record">The brush record.</param>
+      <param name="selected">Indicates if preview is highlighted.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.DrawBrushPreview(UnityEngine.Rect,Rotorz.Tile.Editor.BrushAssetRecord,System.Boolean)">
+      <summary>
+            Draw brush preview to GUI.
+            </summary>
+      <param name="output">Output position of brush preview.</param>
+      <param name="record">The brush record.</param>
+      <param name="selected">Indicates if preview is highlighted.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.DrawBrushPreviewWithoutFallbackLabel(UnityEngine.Rect,Rotorz.Tile.Editor.BrushAssetRecord,System.Boolean)">
+      <summary>
+            Draw brush preview to GUI without assuming a fallback label.
+            </summary>
+      <param name="output">Output position of brush preview.</param>
+      <param name="record">The brush record.</param>
+      <param name="selected">Indicates if preview is highlighted.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.FoldoutSection(System.Boolean,System.String,System.Action)">
+      <summary>
+            Draw expandable section with emphasized title like header.
+            </summary>
+      <param name="foldout">Current state of foldout.</param>
+      <param name="label">Label of foldout header.</param>
+      <param name="callback">Callback for drawing contents of GUI section.</param>
+      <param name="paddedStyle">Style for padding section area.</param>
+      <param name="titleStyle">Style for section title.</param>
+      <returns>
+            A value of <c>true</c> when foldout is expanded; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.FoldoutSection(System.Boolean,System.String,System.Action,UnityEngine.GUIStyle)">
+      <summary>
+            Draw expandable section with emphasized title like header.
+            </summary>
+      <param name="foldout">Current state of foldout.</param>
+      <param name="label">Label of foldout header.</param>
+      <param name="callback">Callback for drawing contents of GUI section.</param>
+      <param name="paddedStyle">Style for padding section area.</param>
+      <param name="titleStyle">Style for section title.</param>
+      <returns>
+            A value of <c>true</c> when foldout is expanded; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.FoldoutSection(System.Boolean,System.String,System.Action,UnityEngine.GUIStyle,UnityEngine.GUIStyle)">
+      <summary>
+            Draw expandable section with emphasized title like header.
+            </summary>
+      <param name="foldout">Current state of foldout.</param>
+      <param name="label">Label of foldout header.</param>
+      <param name="callback">Callback for drawing contents of GUI section.</param>
+      <param name="paddedStyle">Style for padding section area.</param>
+      <param name="titleStyle">Style for section title.</param>
+      <returns>
+            A value of <c>true</c> when foldout is expanded; otherwise <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.Separator(System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Draw simple grey separator.
+            </summary>
+      <param name="marginTop">Margin above splitter.</param>
+      <param name="marginBottom">Margin below splitter.</param>
+      <param name="thickness">Thickness of splitter in pixels.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.SeparatorLight(System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Draw simple grey separator (lighter than <see cref="M:Rotorz.Tile.Editor.RotorzEditorGUI.Separator(System.Int32,System.Int32,System.Int32)" />).
+            </summary>
+      <param name="marginTop">Margin above splitter.</param>
+      <param name="marginBottom">Margin below splitter.</param>
+      <param name="thickness">Thickness of splitter in pixels.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.ShowBrushPicker(Rotorz.Tile.Brush,System.Boolean,System.Boolean,System.Int32)">
+      <summary>
+            Show brush picker window and associate with custom control.
+            </summary>
+      <param name="brush">Currently selected brush.</param>
+      <param name="allowAlias">Indicates whether alias brushes can be selected.</param>
+      <param name="allowMaster">Indicates whether master brushes can be selected.</param>
+      <param name="controlID">Unique ID of custom control.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.StrippingOptions(Rotorz.Tile.StrippingPreset@,System.Int32@)">
+      <summary>
+            Present user interface to input stripping preset.
+            </summary>
+      <param name="preset">Type of stripping preset.</param>
+      <param name="strippingOptions">Per-preset stripping options.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.TabSelector(System.Int32,UnityEngine.GUIContent[])">
+      <summary>
+            Draw tab selector for automatic layout.
+            </summary>
+      <param name="selectedIndex">Zero-based index of active tab.</param>
+      <param name="tabs">Array of tab labels.</param>
+      <returns>
+            Zero-based index of selected tab.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.Title(System.String)">
+      <summary>
+            Output large title text.
+            </summary>
+      <param name="text">Title text.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzEditorGUI.Title(UnityEngine.GUIContent)">
+      <summary>
+            Output large title text.
+            </summary>
+      <param name="content">Label content for title.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.RotorzWindow">
+      <summary>
+            Base class for custom Unity editor windows.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzWindow.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rotorz.Tile.Editor.RotorzWindow" /> class.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RotorzWindow.CenterWhenFirstShown">
+      <summary>
+            Gets or sets whether window should be centered upon first being shown.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzWindow.DoDestroy">
+      <summary>
+            Replacement for <c>OnDestroy</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzWindow.DoDisable">
+      <summary>
+            Replacement for <c>OnDisable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzWindow.DoEnable">
+      <summary>
+            Replacement for <c>OnEnable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.RotorzWindow.DoGUI">
+      <summary>
+            Replacement for <c>OnGUI</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RotorzWindow.InitialSize">
+      <summary>
+            Gets or sets initial size of window.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.RotorzWindow.title"></member>
+    <member name="P:Rotorz.Tile.Editor.RotorzWindow.titleImage"></member>
+    <member name="T:Rotorz.Tile.Editor.RotorzWindow.CenterMode">
+      <summary>
+            Indicates whether window should be centered when first shown.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.RotorzWindow.CenterMode.No">
+      <summary>
+            Do not automatically center window.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.RotorzWindow.CenterMode.Once">
+      <summary>
+            Automatically center window upon first being shown.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.RotorzWindow.CenterMode.Always">
+      <summary>
+            Always automatically center window upon being shown.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.SelectBrushCategoriesWindow">
+      <summary>
+            Brush category selection window.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SelectBrushCategoriesWindow.CategorySelection">
+      <summary>
+            Gets collection of selected category numbers.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.SelectBrushCategoriesWindow.DoEnable">
+      <summary>
+            Replacement for <c>OnEnable</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.SelectBrushCategoriesWindow.DoGUI">
+      <summary>
+            Replacement for <c>OnGUI</c> which can be overridden as needed.
+            </summary>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.SelectBrushCategoriesWindow.OnBrushCategorySelected">
+      <summary>
+            Occurs when brush category was selected.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.SelectBrushCategoriesWindow.ShowWindow(Rotorz.Tile.Editor.BrushCategorySelected,System.Collections.Generic.ICollection{System.Int32})">
+      <summary>
+            Display brush category selection window.
+            </summary>
+      <param name="callback">Callback is invoked when a brush category is selected.</param>
+      <param name="categories">Initial selection of brush categories.</param>
+      <returns>
+            The window.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.SprayTool">
+      <summary>
+            Spray tool gradually fills area of brush nozzle with tiles and can optionally
+            randomize tile rotation.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.SprayTool.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.SprayTool</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SprayTool.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SprayTool.DefaultNozzleSize">
+      <summary>
+            Gets default size of nozzle.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SprayTool.FillRatePercentage">
+      <summary>
+            Gets or sets fill rate of spray tool; a value within the range 0 to 100.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.SprayTool.GetPaintingArgs(Rotorz.Tile.Brush)">
+      <summary>
+            Gets painting arguments for tool. This method can be overridden to take further
+            control over the way in which tiles are painted.
+            </summary>
+      <param name="brush">Brush to paint with or specify <c>null</c> to erase existing tiles.</param>
+      <returns>
+            Painting arguments.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SprayTool.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SprayTool.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SprayTool.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.SprayTool.OnToolOptionsGUI">
+      <summary>
+            Raised to draw options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.SprayTool.PrepareOptions(Rotorz.Settings.ISettingStore)">
+      <summary>
+            Invoked allowing tool to prepare options from the provided setting store.
+            </summary>
+      <param name="store">Setting store.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.SprayTool.RandomizeRotation">
+      <summary>
+            Gets or sets whether rotation of tiles should be randomized whilst painting tiles.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.TilesetAssetRecord">
+      <summary>
+            Provides data about a tileset asset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetAssetRecord.AssetPath">
+      <summary>
+            Gets file path of tileset asset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetAssetRecord.BrushRecords">
+      <summary>
+            Gets list of brush records contained within tileset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetAssetRecord.DisplayName">
+      <summary>
+            Gets display name of tileset.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetAssetRecord.FindBrushByName(System.String)">
+      <summary>
+            Find first brush that matches specified name.
+            </summary>
+      <param name="name">Brush name.</param>
+      <returns>
+            The <see cref="T:Rotorz.Tile.Brush" /> when found; otherwise <c>null</c>.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetAssetRecord.IsMaster">
+      <summary>
+            Gets a value that indicates whether tileset contains master brushes.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetAssetRecord.Tileset">
+      <summary>
+            Gets the tileset.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.TilesetBrushDesigner">
+      <summary>
+            Designer for <see cref="P:Rotorz.Tile.Editor.TilesetBrushDesigner.TilesetBrush" /> brushes.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetBrushDesigner.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.TilesetBrushDesigner</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetBrushDesigner.DrawSecondaryMenuButton(UnityEngine.Rect)">
+      <summary>
+            Draw secondary menu button.
+            </summary>
+      <param name="position">Position of button in window.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetBrushDesigner.OnEnable">
+      <summary>
+            Occurs when designer view is initialized for first time.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetBrushDesigner.OnExtendedPropertiesGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of extended properties.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetBrushDesigner.OnGUI">
+      <summary>
+            Occurs when rendering and handling GUI events of designer.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetBrushDesigner.OnViewTileset">
+      <summary>
+            Occurs when "View Tileset" is clicked.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetBrushDesigner.TilesetBrush">
+      <summary>
+            Gets the tileset brush that is being edited.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.TilesetChangedHandler">
+      <summary>
+            Represents the method that will handle tileset selection changed events.
+            </summary>
+      <param name="previous">Previously selected tileset.</param>
+      <param name="current">Currently selected tileset.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.TilesetEditor">
+      <summary>
+            Default inspector for tileset assets.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetEditor.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Rotorz.Tile.Editor.TilesetEditor</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetEditor.OnHeaderGUI"></member>
+    <member name="M:Rotorz.Tile.Editor.TilesetEditor.OnInspectorGUI"></member>
+    <member name="T:Rotorz.Tile.Editor.TilesetMetrics">
+      <summary>
+            Calculates metrics for a tileset.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetMetrics.#ctor">
+      <summary>
+            Initialize new instance of <see cref="T:Rotorz.Tile.Editor.TilesetMetrics" />.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetMetrics.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single)">
+      <summary>
+            Initialize a new instance of the <see cref="T:Rotorz.Tile.Editor.TilesetMetrics" /> class and calculate
+            metrics for the specified tileset.
+            </summary>
+      <param name="atlasWidth">Width of tileset atlas in pixels.</param>
+      <param name="atlasHeight">Height of tileset atlas in pixels.</param>
+      <param name="tileWidth">Width of tile in pixels.</param>
+      <param name="tileHeight">Height of tile in pixels.</param>
+      <param name="borderSize">Border size in pixels.</param>
+      <param name="delta">UV delta offset (fraction of pixel).</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetMetrics.#ctor(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Single)">
+      <summary>
+            Initialize a new instance of the <see cref="T:Rotorz.Tile.Editor.TilesetMetrics" /> class and calculate
+            metrics for the specified tileset.
+            </summary>
+      <param name="atlas">Atlas texture for tileset.</param>
+      <param name="tileWidth">Width of tile in pixels.</param>
+      <param name="tileHeight">Height of tile in pixels.</param>
+      <param name="borderSize">Border size in pixels.</param>
+      <param name="delta">UV delta offset (fraction of pixel).</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.BorderSize">
+      <summary>
+            Gets size of tile border in pixels.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.BorderU">
+      <summary>
+            Gets size of tile border on U-axis in UV space.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.BorderV">
+      <summary>
+            Gets size of tile border on V-axis in UV space.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetMetrics.Calculate(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single)">
+      <summary>
+            Calculate metrics for specified tileset.
+            </summary>
+      <param name="atlasWidth">Width of tileset atlas in pixels.</param>
+      <param name="atlasHeight">Height of tileset atlas in pixels.</param>
+      <param name="tileWidth">Width of tile in pixels.</param>
+      <param name="tileHeight">Height of tile in pixels.</param>
+      <param name="borderSize">Border size in pixels.</param>
+      <param name="delta">UV delta offset (fraction of pixel).</param>
+      <returns>
+            A value of <c>true</c> when valid atlas was specified; otherwise a value of <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetMetrics.Calculate(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Single)">
+      <summary>
+            Calculate metrics for specified tileset.
+            </summary>
+      <param name="atlas">Atlas texture for tileset.</param>
+      <param name="tileWidth">Width of tile in pixels.</param>
+      <param name="tileHeight">Height of tile in pixels.</param>
+      <param name="borderSize">Border size in pixels.</param>
+      <param name="delta">UV delta offset (fraction of pixel).</param>
+      <returns>
+            A value of <c>true</c> when valid atlas was specified; otherwise a value of <c>false</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TilesetMetrics.Clear">
+      <summary>
+            Clear all metrics.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.Columns">
+      <summary>
+            Gets number of columns of tiles in atlas texture.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.Delta">
+      <summary>
+            Gets delta value.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.DeltaU">
+      <summary>
+            Gets delta for U-axis.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.DeltaV">
+      <summary>
+            Gets delta for V-axis.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.OriginalAtlasHeight">
+      <summary>
+            Gets height of original texture asset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.OriginalAtlasWidth">
+      <summary>
+            Gets width of original texture asset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.Rows">
+      <summary>
+            Gets number of rows of tiles in atlas texture.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileHeight">
+      <summary>
+            Gets height of tile in pixels.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileHeightUV">
+      <summary>
+            Gets height of tile in UV space.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileIncrementU">
+      <summary>
+            Gets offset to next tile on U-axis of UV coordinates.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileIncrementV">
+      <summary>
+            Gets offset to next tile on V-axis of UV coordinates.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileIncrementX">
+      <summary>
+            Gets offset in pixels to next tile on X-axis of atlas texture.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileIncrementY">
+      <summary>
+            Gets offset in pixels to next tile on Y-axis of atlas texture.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileWidth">
+      <summary>
+            Gets width of tile in pixels.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TilesetMetrics.TileWidthUV">
+      <summary>
+            Gets width of tile in UV space.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.TileSystemHandler">
+      <summary>
+            Tile system event handler.
+            </summary>
+      <param name="system">Tile system instance.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.TileSystemPreset">
+      <summary>
+            A preset that describes a tile system which can be used to quickly create tile
+            systems with common configurations.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPreset.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rotorz.Tile.Editor.TileSystemPreset" /> class.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.AddProceduralNormals">
+      <summary>
+            Gets or sets whether normals should be added to procedural meshes.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.ApplyRuntimeStripping">
+      <summary>
+            Gets or sets whether to apply basic level of stripping at runtime.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.ChunkHeight">
+      <summary>
+            Gets or sets the height of a chunk (in tiles).
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.ChunkWidth">
+      <summary>
+            Gets or sets the width of a chunk (in tiles).
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.Columns">
+      <summary>
+            Gets or sets the number of columns in tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.CombineChunkHeight">
+      <summary>
+            Gets or sets the height of a tile chunk to combine (in tiles).
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.CombineChunkWidth">
+      <summary>
+            Gets or sets the width of a tile chunk to combine (in tiles).
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.CombineIntoSubmeshes">
+      <summary>
+            Gets or sets whether tile meshes should be combined into submeshes when
+            they contain multiple materials. Disable to create individual mesh objects
+            on a per-material basis.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.CombineMethod">
+      <summary>
+            Gets or sets the method of combining to perform upon build.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.Direction">
+      <summary>
+            Gets or sets the initial direction of the tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.GenerateSecondUVs">
+      <summary>
+            Gets or sets whether second set of UVs should be generated.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.GenerateSecondUVsParams">
+      <summary>
+            Gets or sets advanced paramaters used when generating secondary UVs.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.HintEraseEmptyChunks">
+      <summary>
+            Gets or sets a hint of whether empty chunks should be erased at runtime.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.MarkProceduralDynamic">
+      <summary>
+            Gets or sets whether procedural meshes should be marked as dynamic.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.PregenerateProcedural">
+      <summary>
+            Gets or sets whether tiles that are procedurally generated should be
+            pre-generated when building tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.ReduceColliders">
+      <summary>
+            Gets options which are considered when reducing colliders.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.Rows">
+      <summary>
+            Gets or sets the number of rows in tile system.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPreset.SetDefaults2D">
+      <summary>
+            Set to the default values for a tile system that has 2D tiles.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPreset.SetDefaults3D">
+      <summary>
+            Set to the default values for a tile system that has 3D tiles.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.SortingLayerID">
+      <summary>
+            Gets or sets identifier of sorting layer which is used to control render
+            order of procedurally generated meshes.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.SortingOrder">
+      <summary>
+            Gets or sets order in sorting layers which is used to control render order of
+            procedurally generated meshes.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.StaticVertexSnapping">
+      <summary>
+            Gets or sets whether vertex snapping should be applied during build process.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.StrippingOptions">
+      <summary>
+            Gets or sets options for custom stripping.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.StrippingPreset">
+      <summary>
+            Gets or sets the stripping preset.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.SystemName">
+      <summary>
+            Gets or sets the default name for the new tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.TileDepth">
+      <summary>
+            Gets or sets the depth of a tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.TileHeight">
+      <summary>
+            Gets or sets the height of a tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.TilesFacing">
+      <summary>
+            Gets or sets the direction that painted tiles will face.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.TileWidth">
+      <summary>
+            Gets or sets the width of a tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.UpdateProceduralAtStart">
+      <summary>
+            Gets or sets whether procedural meshes should be updated when tile system
+            becomes active.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.TileSystemPreset.VertexSnapThreshold">
+      <summary>
+            Gets or sets vertex snap threshold for vertex snapping and smoothing.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.TileSystemPresetUtility">
+      <summary>
+            Utility functions to asset with the management and usage of tile system presets.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.CreatePreset(Rotorz.Tile.Editor.TileSystemPreset,System.String)">
+      <summary>
+            Creates a new tile system preset by copying the properties of the source
+            preset. If a preset already exists with the same name then it will be
+            overwritten.
+            </summary>
+      <param name="source">Source preset.</param>
+      <param name="presetName">Name of the new preset.</param>
+      <returns>
+            A reference to the new <see cref="T:Rotorz.Tile.Editor.TileSystemPreset" /> asset.
+            </returns>
+      <exception cref="T:System.ArgumentNullException">
+        <list type="bullet">
+          <item>If <paramref name="source" /> is <c>null</c>.</item>
+          <item>If <paramref name="presetName" /> is <c>null</c>.</item>
+        </list>
+      </exception>
+      <exception cref="T:System.ArgumentException">
+            If <paramref name="presetName" /> is not a valid preset name.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.CreateTileSystemFromPreset(Rotorz.Tile.Editor.TileSystemPreset)">
+      <summary>
+            Creates a new tile system using properties from the specified preset.
+            </summary>
+      <param name="preset">Tile system preset.</param>
+      <returns>
+            A new game object with an initialized <see cref="T:Rotorz.Tile.TileSystem" />.
+            </returns>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="preset" /> is <c>null</c>.
+            </exception>
+      <exception cref="T:System.InvalidOperationException">
+        <list type="bullet">
+          <item>If preset defines an invalid name for a tile system.</item>
+          <item>If preset defines a tile system with less than one cell.</item>
+        </list>
+      </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.DeletePreset(Rotorz.Tile.Editor.TileSystemPreset)">
+      <summary>
+            Deletes an unwanted tile system preset.
+            </summary>
+      <param name="preset">Tile system preset.</param>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="preset" /> is <c>null</c>.
+            </exception>
+      <exception cref="T:System.InvalidOperationException">
+            If <paramref name="preset" /> is not a known asset file.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.GetPresets">
+      <summary>
+            Gets an array of all the <see cref="T:Rotorz.Tile.Editor.TileSystemPreset" /> assets in the project.
+            </summary>
+      <returns>
+            Array of <see cref="T:Rotorz.Tile.Editor.TileSystemPreset" /> assets.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.IsUserPreset(Rotorz.Tile.Editor.TileSystemPreset)">
+      <summary>
+            Determines whether the specified tile system preset is located within the
+            main "User Data" directory structure.
+            </summary>
+      <param name="preset">Tile system preset.</param>
+      <returns>
+            A value of <c>true</c> if the preset is located in the main "User Data"
+            directory; otherwise, a value of <c>false</c>.
+            </returns>
+      <exception cref="T:System.ArgumentNullException">
+            If <paramref name="preset" /> is <c>null</c>.
+            </exception>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.IsValidPresetName(System.String)">
+      <summary>
+            Determines whether the specified name is valid for a tile system preset.
+            </summary>
+      <param name="presetName">The candidate preset name.</param>
+      <returns>
+            A value of <c>true</c> if the name was valid; otherwise, a value of <c>false</c>
+            if the name was invalid or <c>null</c>.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.LoadPresetFromGUID(System.String)">
+      <summary>
+            Loads the <see cref="T:Rotorz.Tile.Editor.TileSystemPreset" /> from the specified preset asset GUID.
+            </summary>
+      <param name="presetGuid">GUID of the preset.</param>
+      <returns>
+            The <see cref="T:Rotorz.Tile.Editor.TileSystemPreset" /> reference when found; otherwise, a value
+            of <c>null</c> if preset does not exist.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.TileSystemPresetUtility.OverwritePreset(Rotorz.Tile.Editor.TileSystemPreset,Rotorz.Tile.Editor.TileSystemPreset)">
+      <summary>
+            Overwrites an existing tile system preset by copying the properties of the
+            source preset into the destination preset.
+            </summary>
+      <param name="source">Source preset.</param>
+      <param name="dest">Destination preset.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <list type="bullet">
+          <item>If <paramref name="source" /> is <c>null</c>.</item>
+          <item>If <paramref name="dest" /> is <c>null</c>.</item>
+        </list>
+      </exception>
+      <exception cref="T:System.ArgumentException">
+            If <paramref name="dest" /> is not a persisted asset file.
+            </exception>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ToolBase">
+      <summary>
+            Base class for a tool that can interact with the active tile system.
+            Tools must inherit this class for compatability with the tile system
+            tool manager. For an example of registering a custom tool please refer
+            to <see cref="M:Rotorz.Tile.Editor.ToolManager.RegisterTool``1">ToolManager.RegisterTool&lt;T&gt;</see>.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.#ctor">
+      <summary>
+            Initialize new instance of <see cref="T:Rotorz.Tile.Editor.ToolBase" />.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.Cursor">
+      <summary>
+            Gets custom cursor to use when tool is active.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.DrawNozzleIndicator(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.BrushNozzle,System.Int32)">
+      <summary>
+            Draw nozzle indicator to provide user with feedback by indicating position
+            of active tile in scene view.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="index">Index of tile.</param>
+      <param name="nozzle">Type of brush nozzle.</param>
+      <param name="nozzleSize">Size of nozzle where <c>1</c> is a single tile.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.GetNozzleIndicator(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.BrushNozzle)">
+      <summary>
+            Gets indicator that should be drawn to represent tool nozzle.
+            </summary>
+      <param name="system">Tile system.</param>
+      <param name="index">Index of tile.</param>
+      <param name="nozzle">Type of brush nozzle.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.HasAdvancedToolOptionsGUI">
+      <summary>
+            Gets a value indicating whether tool has advanced options to show.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.IconActive">
+      <summary>
+            Gets icon for active tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.IconNormal">
+      <summary>
+            Gets icon for normal tool state.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.IsEditorNearestControl">
+      <summary>
+            Gets a value indicating whether user is interacting with the tile system
+            editor or with another control which is nearer within the scene view.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.IsTargetPointConstrained">
+      <summary>
+            Gets a value indicating whether target point should be constrained when tool has
+            been anchored. For example, holding shift to contains to straight lines or uniform
+            rectangles.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.Label">
+      <summary>
+            Gets label for tool selection button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnAdvancedToolOptionsGUI">
+      <summary>
+            Raised to draw advanced options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnCheckKeyboardShortcuts">
+      <summary>
+            Raised when checking for keyboard shortcuts when this is the active tool. This method
+            occurs within the context of <c>OnGUI</c> and thus can use <c>Event.current</c>.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnDisable">
+      <summary>
+            Raised when tool becomes inactive.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnDrawGizmos(Rotorz.Tile.TileSystem)">
+      <summary>
+            Raised to draw custom gizmos within scene view.
+            </summary>
+      <param name="system">Active tile system.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnEnable">
+      <summary>
+            Raised when tool becomes active.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnRefreshToolEvent(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised allowing tool to adjust tool event before interacting with tool or
+            handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnSceneGUI(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when handling scene view GUI events.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnTool(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnToolInactive(Rotorz.Tile.Editor.ToolEvent,Rotorz.Tile.Editor.IToolContext)">
+      <summary>
+            Raised when tool is being used but is inactive.
+            </summary>
+      <param name="e">Event data.</param>
+      <param name="context">Context of tool usage.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.OnToolOptionsGUI">
+      <summary>
+            Raised to draw options GUI for custom tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.PreFilterLocalPoint(UnityEngine.Vector3)">
+      <summary>
+            Pre-filter mouse position (in local space of active tile system) ready for
+            handling tool event. This is useful for switching between grid cell and point
+            alignment for even nozzle sizes.
+            </summary>
+      <param name="localPoint">Local point of mouse on tile system plane.</param>
+      <returns>
+            Modified local point.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolBase.PrepareOptions(Rotorz.Settings.ISettingStore)">
+      <summary>
+            Invoked allowing tool to prepare options from the provided setting store.
+            </summary>
+      <param name="store">Setting store.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.ShowAdvancedOptionsGUI">
+      <summary>
+            Gets or sets whether advanced section of options interface is shown for tool.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolBase.Visible">
+      <summary>
+            Gets or sets whether tool should be shown in tool palette window.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ToolChangedDelegate">
+      <summary>
+            Delegate for tool changes.
+            </summary>
+      <param name="oldTool">
+            Previously selected tool; or <c>null</c> if no tool was previously selected.
+            </param>
+      <param name="newTool">
+            Newly selected tool; or <c>null</c> if no tool is now selected.
+            </param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ToolCursors">
+      <summary>
+            Custom tool cursor textures which can be used in custom tools.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Brush">
+      <summary>
+            Gets texture for 'Brush' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Cycle">
+      <summary>
+            Gets texture for 'Cycle' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Fill">
+      <summary>
+            Gets texture for 'Fill' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Line">
+      <summary>
+            Gets texture for 'Line' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Picker">
+      <summary>
+            Gets texture for 'Picker' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Plop">
+      <summary>
+            Gets texture for 'Plop' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.PlopCycle">
+      <summary>
+            Gets texture for 'Plop Cycle' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Rectangle">
+      <summary>
+            Gets texture for 'Rectangle' cursor.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolCursors.Spray">
+      <summary>
+            Gets texture for 'Spray' cursor.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ToolEvent">
+      <summary>
+            Details of event that is being handled by a tool.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.leftButton">
+      <summary>
+            Indicates when left button is pressed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.localPoint">
+      <summary>
+            Gets position of mouse pointer projected on tile system in local space of tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.previousLeftButton">
+      <summary>
+            Indicates if left button was pressed before GUI event.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.previousRightButton">
+      <summary>
+            Indicates if right button was pressed before GUI event.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.rightButton">
+      <summary>
+            Indicates when right button is pressed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.screenPoint">
+      <summary>
+            Gets position of mouse pointer in screen coordinates.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.tileIndex">
+      <summary>
+            Gets or sets index of active tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolEvent.type">
+      <summary>
+            Gets the type of event.
+            </summary>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ToolHandleUtility">
+      <summary>
+            Utility drawing functions for tool handles for <c>OnSceneGUI</c>. These utility functions
+            are intended for use within custom tool classes.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawLineHandles(UnityEngine.Vector3,UnityEngine.Vector3)">
+      <summary>
+            Draw line between two points with sphere cap at each end. This overload assumes the
+            user configurable "Wireframe" color preference.
+            </summary>
+      <param name="point1">First point of line.</param>
+      <param name="point2">Second point of line.</param>
+      <param name="color">Color of line.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawLineHandles(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Color)">
+      <summary>
+            Draw line between two points with sphere cap at each end.
+            </summary>
+      <param name="point1">First point of line.</param>
+      <param name="point2">Second point of line.</param>
+      <param name="color">Color of line.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawNozzleIndicatorSmoothRadius(UnityEngine.Vector3,Rotorz.Tile.BrushNozzle,System.Single)">
+      <summary>
+            Draw nozzle indicator to match specified radius using shading and wireframe
+            color from user preferences.
+            </summary>
+      <param name="position">Position to draw indicator (in local space of tile system).</param>
+      <param name="nozzle">Type of brush nozzle.</param>
+      <param name="radius">Radius of nozzle (in local space of tile system).</param>
+      <param name="faceColor">Color of shaded face.</param>
+      <param name="outlineColor">Color of wire outline.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawNozzleIndicatorSmoothRadius(UnityEngine.Vector3,Rotorz.Tile.BrushNozzle,System.Single,UnityEngine.Color,UnityEngine.Color)">
+      <summary>
+            Draw nozzle indicator to match specified radius.
+            </summary>
+      <param name="position">Position to draw indicator (in local space of tile system).</param>
+      <param name="nozzle">Type of brush nozzle.</param>
+      <param name="radius">Radius of nozzle (in local space of tile system).</param>
+      <param name="faceColor">Color of shaded face.</param>
+      <param name="outlineColor">Color of wire outline.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawRectangle(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.TileIndex,System.Boolean)">
+      <summary>
+            Draw rectangle between anchor and target points.
+            </summary>
+      <param name="system">The tile system.</param>
+      <param name="anchor">Anchor point of rectangle.</param>
+      <param name="target">Target point of rectangle.</param>
+      <param name="uniform">A value of <c>true</c> indicates that rectangle should be uniform (i.e. square).</param>
+      <param name="fillCenter">A value of <c>false</c> indicates that only bordering tiles should be represented.</param>
+      <param name="faceColor">Color to fill inner area of rectangle with.</param>
+      <param name="outlineColor">Color to draw outline of rectangle with.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawRectangle(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.TileIndex,System.Boolean,UnityEngine.Color,UnityEngine.Color)">
+      <summary>
+            Draw rectangle between anchor and target points.
+            </summary>
+      <param name="system">The tile system.</param>
+      <param name="anchor">Anchor point of rectangle.</param>
+      <param name="target">Target point of rectangle.</param>
+      <param name="uniform">A value of <c>true</c> indicates that rectangle should be uniform (i.e. square).</param>
+      <param name="fillCenter">A value of <c>false</c> indicates that only bordering tiles should be represented.</param>
+      <param name="faceColor">Color to fill inner area of rectangle with.</param>
+      <param name="outlineColor">Color to draw outline of rectangle with.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawRectangleBorder(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.TileIndex,System.Boolean)">
+      <summary>
+            Draw rectangle between anchor and target points but only represent tiles which
+            border the rectangle.
+            </summary>
+      <param name="system">The tile system.</param>
+      <param name="anchor">Anchor point of rectangle.</param>
+      <param name="target">Target point of rectangle.</param>
+      <param name="uniform">A value of <c>true</c> indicates that rectangle should be uniform (i.e. square).</param>
+      <param name="fillCenter">A value of <c>false</c> indicates that only bordering tiles should be represented.</param>
+      <param name="faceColor">Color to fill inner area of rectangle with.</param>
+      <param name="outlineColor">Color to draw outline of rectangle with.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawRectangleBorder(Rotorz.Tile.TileSystem,Rotorz.Tile.TileIndex,Rotorz.Tile.TileIndex,System.Boolean,UnityEngine.Color,UnityEngine.Color)">
+      <summary>
+            Draw rectangle between anchor and target points but only represent tiles which
+            border the rectangle.
+            </summary>
+      <param name="system">The tile system.</param>
+      <param name="anchor">Anchor point of rectangle.</param>
+      <param name="target">Target point of rectangle.</param>
+      <param name="uniform">A value of <c>true</c> indicates that rectangle should be uniform (i.e. square).</param>
+      <param name="fillCenter">A value of <c>false</c> indicates that only bordering tiles should be represented.</param>
+      <param name="faceColor">Color to fill inner area of rectangle with.</param>
+      <param name="outlineColor">Color to draw outline of rectangle with.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawWireBox(UnityEngine.Vector3,UnityEngine.Vector3)">
+      <summary>
+            Draw wire box handle using wireframe color from user preferences.
+            </summary>
+      <param name="position">Position to draw indicator (in local space of tile system).</param>
+      <param name="size">Size of box.</param>
+      <param name="color">Color of wireframe.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawWireBox(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Color)">
+      <summary>
+            Draw wire box handle.
+            </summary>
+      <param name="position">Position to draw indicator (in local space of tile system).</param>
+      <param name="size">Size of box.</param>
+      <param name="color">Color of wireframe.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawWireCube(UnityEngine.Vector3)">
+      <summary>
+            Draw wire cube handle one local unit in size using wireframe color from user preferences.
+            </summary>
+      <param name="position">Position to draw indicator (in local space of tile system).</param>
+      <param name="size">Size of box.</param>
+      <param name="color">Color of wireframe.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolHandleUtility.DrawWireCube(UnityEngine.Vector3,UnityEngine.Color)">
+      <summary>
+            Draw wire cube handle one local unit in size.
+            </summary>
+      <param name="position">Position to draw indicator (in local space of tile system).</param>
+      <param name="size">Size of box.</param>
+      <param name="color">Color of wireframe.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ToolManager">
+      <summary>
+            Transparently switches between tile system tools and standard Unity tools.
+            Tile system tools can be registered using <see cref="M:Rotorz.Tile.Editor.ToolManager.RegisterTool``1" />
+            which are then shown in the tool palette user interface.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolManager.CurrentTool">
+      <summary>
+            Gets or sets current tool selection.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolManager.DefaultPaintTool">
+      <summary>
+            Gets or sets the default paint tool.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolManager.Find``1">
+      <summary>
+            Find tool of specified type.
+            </summary>
+      <typeparam name="T">Type of tool.</typeparam>
+      <returns>
+            The <see cref="T:Rotorz.Tile.Editor.ToolBase" /> instance; otherwise a value of <c>null</c>
+            if tool has not been registered.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolManager.Instance">
+      <summary>
+            Gets one and only tool manager instance.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolManager.IsSelected``1">
+      <summary>
+            Determines whether tool is selected.
+            </summary>
+      <typeparam name="T">Type of tool.</typeparam>
+      <returns>
+            A value of <c>true</c> if tool is selected; otherwise a value of <c>false</c>.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolManager.PreviousTool">
+      <summary>
+            Gets the previously selected tool.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolManager.RegisterTool``1">
+      <summary>
+            Register custom tool with tile system editor.
+            </summary>
+      <typeparam name="T">Type of tool</typeparam>
+      <returns>
+            Instance of registered tool.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolManager.SelectTool``1">
+      <summary>
+            Selects tool for use within custom system.
+            </summary>
+      <typeparam name="T">Type of tool.</typeparam>
+      <returns>
+            The <see cref="T:Rotorz.Tile.Editor.ToolBase" /> instance; otherwise a value of <c>null</c>
+            if tool has not been registered.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolManager.SelectTool(Rotorz.Tile.Editor.ToolBase)">
+      <summary>
+            Selects tool for use within custom system.
+            </summary>
+      <param name="tool">Tool that is to be selected. Specify `null` to
+            revert to previous Unity tool.</param>
+      <returns>
+            Instance of tool that was selected.
+            </returns>
+    </member>
+    <member name="E:Rotorz.Tile.Editor.ToolManager.ToolChanged">
+      <summary>
+            Occurs when current tool has changed.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolManager.Tools">
+      <summary>
+            Gets ordered list of tools.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolManager.UnregisterTool``1">
+      <summary>
+            Unregisters the tool.
+            </summary>
+      <typeparam name="T">Type of tool</typeparam>
+      <returns>
+            Returns true to indicate that tool was unregistered, otherwise false.
+            </returns>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ToolUtility">
+      <summary>
+            Utility functions that are useful when implementing custom tools.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.ActivePlop">
+      <summary>
+            Gets or sets plop which is active for current tool.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.ActiveTile">
+      <summary>
+            Gets the active tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.ActiveTileIndex">
+      <summary>
+            Gets or sets zero-based index of the active tile.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.ActiveTileSystem">
+      <summary>
+            Gets the active tile system.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.BrushNozzle">
+      <summary>
+            Gets or sets brush nozzle.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.FillCenter">
+      <summary>
+            Gets or sets whether center of shapes should be filled.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.GetAllTileSystemsInScene">
+      <summary>
+            Gets list of all active and non-active tile systems in the current scene.
+            </summary>
+      <returns>
+            Read-only collection of tile systems in scene order.
+            </returns>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.GetSelectedTileSystems">
+      <summary>
+            Gets all selected tile system components.
+            </summary>
+      <returns>
+            Array of tile system components.
+            </returns>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.PaintAroundExistingTiles">
+      <summary>
+            Gets or sets whether tiles should be painted around existing tiles or whether
+            existing tiles should be replaced.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.PreviouslyPlopped">
+      <summary>
+            Gets or sets reference to the previously plopped object.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.RandomizeVariations">
+      <summary>
+            Gets or sets whether brush variations should be randomized when painted.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.RepaintBrushPalette">
+      <summary>
+            Repaint brush palette window if shown.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.RepaintPaletteWindows">
+      <summary>
+            Repaint all palette windows.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.RepaintToolPalette">
+      <summary>
+            Repaint tool palette window if shown.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.RevealBrush(Rotorz.Tile.Brush,System.Boolean)">
+      <summary>
+            Reveal brush in brushes palette where possible.
+            </summary>
+      <param name="brush">The brush.</param>
+      <param name="showWindow">Indicates if brush palette window should be shown
+            if not already shown.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.RevealTileSystem(Rotorz.Tile.TileSystem,System.Boolean)">
+      <summary>
+            Reveal tile system in scene palette.
+            </summary>
+      <param name="system">The tile system.</param>
+      <param name="showWindow">Indicates if scene palette window should be shown if not already.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.Rotation">
+      <summary>
+            Gets or sets simple rotation which should be applied to tiles or plops when painted.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.SelectActiveOrParentTileSystem">
+      <summary>
+            Select and activate nearest tile system in parent hierarchy of selected object.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.SelectedBrush">
+      <summary>
+            Gets or sets primary selected brush for use with tools. This brush is
+            typically used in conjunction with the primary mouse button.
+            </summary>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.SelectedBrushSecondary">
+      <summary>
+            Gets or sets secondary selected brush for use with tools. This brush is
+            typically used in conjunction with the secondary mouse button.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.SelectNextTileSystem">
+      <summary>
+            Select and activate next tile system in scene.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.SelectNthTileSystem(System.Int32)">
+      <summary>
+            Select and activate nth visible tile system.
+            </summary>
+      <param name="n">Zero-based index of tile system in scene order.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.SelectPreviousTileSystem">
+      <summary>
+            Select and activate previous tile system in scene.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.SelectTileSystem(Rotorz.Tile.TileSystem)">
+      <summary>
+            Select and activate tile system.
+            </summary>
+      <param name="system">Tile system.</param>
+    </member>
+    <member name="P:Rotorz.Tile.Editor.ToolUtility.SharedBrushListModel">
+      <summary>
+            Gets brush list model which is used by the brushes palette and shared with other
+            user interfaces such as the designer window.
+            </summary>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.ShowBrushInDesigner(Rotorz.Tile.Brush)">
+      <summary>
+            Show brush in designer window.
+            </summary>
+      <param name="brush">Brush asset.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.ShowBrushPalette(System.Boolean)">
+      <summary>
+            Show brush palette window.
+            </summary>
+      <param name="focus">Indicates if window should be focused.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.ShowScenePalette(System.Boolean)">
+      <summary>
+            Show scene palette window.
+            </summary>
+      <param name="focus">Indicates if window should be focused.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.ShowTilesetInDesigner(Rotorz.Tile.Tileset)">
+      <summary>
+            Show tileset in designer window.
+            </summary>
+      <param name="tileset">Tileset asset.</param>
+    </member>
+    <member name="M:Rotorz.Tile.Editor.ToolUtility.ShowToolPalette(System.Boolean)">
+      <summary>
+            Show tool palette window.
+            </summary>
+      <param name="focus">Indicates if window should be focused.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.ViewChangedHandler">
+      <summary>
+            Represents the method that will handle list view changed events.
+            </summary>
+      <param name="previous">Previously selected view.</param>
+      <param name="current">Currently selected view.</param>
+    </member>
+    <member name="T:Rotorz.Tile.Editor.WorldDirection">
+      <summary>
+            A direction in world space.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.WorldDirection.Up">
+      <summary>
+            Upwards in world space (useful for top-down).
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.WorldDirection.Down">
+      <summary>
+            Downwards in world space (useful for bottom-up).
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.WorldDirection.Left">
+      <summary>
+            Leftwards in world space.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.WorldDirection.Right">
+      <summary>
+            Rightwards in world space.
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.WorldDirection.Forward">
+      <summary>
+            Forwards in world space (useful for platformer).
+            </summary>
+    </member>
+    <member name="F:Rotorz.Tile.Editor.WorldDirection.Backward">
+      <summary>
+            Backwards in world space.
+            </summary>
+    </member>
+  </members>
+</doc>
