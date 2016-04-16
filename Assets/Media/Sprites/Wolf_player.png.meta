@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a4c2bb5553f8adc499ac206568c6bc30
-timeCreated: 1460794508
+timeCreated: 1460824261
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -65,7 +65,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 6}
@@ -80,10 +80,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 32
+        width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -2, y: 8}
@@ -99,10 +99,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 64
-        width: 32
+        width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 15, y: -1}
@@ -119,10 +119,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 32
+        width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 12, y: 4}
@@ -138,10 +138,10 @@ TextureImporter:
         serializedVersion: 2
         x: 96
         y: 64
-        width: 32
+        width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -5, y: 1}
@@ -157,10 +157,10 @@ TextureImporter:
         serializedVersion: 2
         x: 128
         y: 64
-        width: 32
+        width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -5, y: 2}
@@ -172,12 +172,12 @@ TextureImporter:
     - name: Wolf_player_6
       rect:
         serializedVersion: 2
-        x: 160
+        x: 161
         y: 64
-        width: 32
+        width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 12, y: 5}

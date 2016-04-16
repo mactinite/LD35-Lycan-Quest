@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	private SpriteRenderer sr;
 	private BoxCollider2D col;
 	private CharacterController2D cc;
+	private PlatformingController pCtrl;
 	private Animator anim;
 
 	[Header("Human specific variables")]
@@ -31,14 +32,27 @@ public class PlayerController : MonoBehaviour {
 		col = GetComponent<BoxCollider2D> ();
 		cc = GetComponent<CharacterController2D> ();
 		anim = GetComponent<Animator> ();
+		pCtrl = GetComponent<PlatformingController> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.C)) {
-			ChangeState ();
+		if (currState == shiftState.WOLF) {
+			if (!Physics2D.Raycast (transform.position, Vector2.up, 1.25f, cc.platformMask)) {
+				if (Input.GetKeyDown (KeyCode.C)) {
+					ChangeState ();
+				}
+			}
+		} else if (currState == shiftState.HUMAN) {
+			if (Input.GetKeyDown (KeyCode.C)) {
+				ChangeState ();
+			}
 		}
+
+
+
+
 
 		if (currState == shiftState.HUMAN) {
 			HumanControls ();
@@ -67,13 +81,13 @@ public class PlayerController : MonoBehaviour {
 
 	void ChangeState(){
 		if (currState == shiftState.HUMAN) {
-			sr.sprite = wForm;
+			pCtrl.ShapeShift ();
 			transform.position = new Vector2 (transform.position.x, transform.position.y - 0.25f);
-			col.size = new Vector2 (1f, 0.75f);
+			col.size = new Vector2 (1f, 1f);
 			cc.recalculateDistanceBetweenRays ();
 			currState = shiftState.WOLF;
 		} else {
-			sr.sprite = hForm;
+			pCtrl.ShapeShift ();
 			transform.position = new Vector2 (transform.position.x, transform.position.y + 0.5f);
 			col.size = new Vector2 (1f, 1.5f);
 			cc.recalculateDistanceBetweenRays ();

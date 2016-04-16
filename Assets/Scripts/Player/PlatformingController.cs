@@ -5,6 +5,8 @@ using Prime31;
 
 public class PlatformingController : MonoBehaviour
 {
+
+
 	// movement config
 	public float gravity = -25f;
 	public float runSpeed = 8f;
@@ -13,6 +15,7 @@ public class PlatformingController : MonoBehaviour
 	public float jumpHeight = 3f;
 
 	private bool attacking = false;
+	private bool shapeShifting = false;
 
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
@@ -21,11 +24,13 @@ public class PlatformingController : MonoBehaviour
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 	private Animator anim;
+	private PlayerController playerController;
 
 
 	void Awake()
 	{
 		_controller = GetComponent<CharacterController2D>();
+		playerController = GetComponent<PlayerController> ();
 		anim = GetComponent<Animator> ();
 		// listen to some events for illustration purposes
 		_controller.onControllerCollidedEvent += onControllerCollider;
@@ -73,8 +78,8 @@ public class PlatformingController : MonoBehaviour
 			if( transform.localScale.x < 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
-			if (_controller.isGrounded && !attacking) {
-				anim.Play(Animator.StringToHash("RUN"));
+			if (_controller.isGrounded && !attacking && !shapeShifting) {
+				anim.Play(Animator.StringToHash(playerController.currState.ToString() + "_RUN"));
 			}
 				//RUN ANIM
 		}
@@ -84,8 +89,8 @@ public class PlatformingController : MonoBehaviour
 			if( transform.localScale.x > 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
-			if (_controller.isGrounded && !attacking) {
-				anim.Play(Animator.StringToHash("RUN"));
+			if (_controller.isGrounded && !attacking && !shapeShifting) {
+				anim.Play(Animator.StringToHash(playerController.currState.ToString() + "_RUN"));
 			}
 				//RUN ANIM
 		}
@@ -93,8 +98,8 @@ public class PlatformingController : MonoBehaviour
 		{
 			normalizedHorizontalSpeed = 0;
 
-			if (_controller.isGrounded && !attacking) {
-				anim.Play(Animator.StringToHash("IDLE"));
+			if (_controller.isGrounded && !attacking && !shapeShifting) {
+				anim.Play(Animator.StringToHash(playerController.currState.ToString() + "_IDLE"));
 
 			}
 				//IDLE ANIM
@@ -108,9 +113,10 @@ public class PlatformingController : MonoBehaviour
 
 
 		// we can only jump whilst grounded
-		if( _controller.isGrounded && Input.GetKeyDown( KeyCode.UpArrow ) )
+		if( _controller.isGrounded && Input.GetKeyDown( KeyCode.UpArrow ) && !shapeShifting && !Input.GetKey(KeyCode.DownArrow))
 		{
 			_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
+			anim.Play(Animator.StringToHash(playerController.currState.ToString() + "_JUMP"));
 			//JUMP ANIM
 		}
 
@@ -126,6 +132,7 @@ public class PlatformingController : MonoBehaviour
 		// this lets uf jump down through one way platforms
 		if( _controller.isGrounded && Input.GetKey( KeyCode.DownArrow ) )
 		{
+
 			_velocity.y *= 3f;
 			_controller.ignoreOneWayPlatformsThisFrame = true;
 		}
@@ -140,8 +147,15 @@ public class PlatformingController : MonoBehaviour
 	IEnumerator Attack(){
 		attacking = true;
 		anim.Play(Animator.StringToHash("ATTACK"));
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(0.4f);
 		attacking = false;
+	}
+
+	public IEnumerator ShapeShift(){
+		shapeShifting = true;
+		anim.Play(Animator.StringToHash(playerController.currState.ToString() + "_SHAPESHIFT"));
+		yield return new WaitForSeconds(0.5f);
+		shapeShifting = false;
 	}
 
 }
