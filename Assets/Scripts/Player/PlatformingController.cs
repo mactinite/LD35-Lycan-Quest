@@ -12,18 +12,21 @@ public class PlatformingController : MonoBehaviour
 	public float inAirDamping = 5f;
 	public float jumpHeight = 3f;
 
+	private bool attacking = false;
+
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
 
 	private CharacterController2D _controller;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
+	private Animator anim;
 
 
 	void Awake()
 	{
 		_controller = GetComponent<CharacterController2D>();
-
+		anim = GetComponent<Animator> ();
 		// listen to some events for illustration purposes
 		_controller.onControllerCollidedEvent += onControllerCollider;
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
@@ -70,7 +73,8 @@ public class PlatformingController : MonoBehaviour
 			if( transform.localScale.x < 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
-			if (_controller.isGrounded) {
+			if (_controller.isGrounded && !attacking) {
+				anim.Play(Animator.StringToHash("RUN"));
 			}
 				//RUN ANIM
 		}
@@ -80,7 +84,8 @@ public class PlatformingController : MonoBehaviour
 			if( transform.localScale.x > 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
-			if (_controller.isGrounded) {
+			if (_controller.isGrounded && !attacking) {
+				anim.Play(Animator.StringToHash("RUN"));
 			}
 				//RUN ANIM
 		}
@@ -88,10 +93,18 @@ public class PlatformingController : MonoBehaviour
 		{
 			normalizedHorizontalSpeed = 0;
 
-			if (_controller.isGrounded) {
+			if (_controller.isGrounded && !attacking) {
+				anim.Play(Animator.StringToHash("IDLE"));
+
 			}
 				//IDLE ANIM
 		}
+
+		if (Input.GetKeyDown (KeyCode.Z) && !attacking) {
+
+			StartCoroutine (Attack ());
+		}
+
 
 
 		// we can only jump whilst grounded
@@ -121,6 +134,14 @@ public class PlatformingController : MonoBehaviour
 
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
+	}
+
+
+	IEnumerator Attack(){
+		attacking = true;
+		anim.Play(Animator.StringToHash("ATTACK"));
+		yield return new WaitForSeconds(0.3f);
+		attacking = false;
 	}
 
 }
