@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d2cc9bf621bd4aa4994c44c8a2802a3c
-timeCreated: 1460829805
+timeCreated: 1460861219
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -45,6 +45,10 @@ TextureImporter:
     21300076: Human_Player_27
     21300078: Human_Player_28
     21300080: Human_Player_29
+    21300082: Human_Player_30
+    21300084: Human_Player_31
+    21300086: Human_Player_32
+    21300088: Human_Player_33
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -95,225 +99,225 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 208
+        y: 224
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 12, y: 11.5}
-        - {x: -7, y: 11.5}
-        - {x: -16, y: 10.5}
-        - {x: -16, y: -23.5}
-        - {x: 14, y: -23.5}
-        - {x: 14, y: 9.5}
+      - - {x: 12, y: 35}
+        - {x: -7, y: 35}
+        - {x: -16, y: 34}
+        - {x: -16, y: 0}
+        - {x: 14, y: 0}
+        - {x: 14, y: 33}
     - name: Human_Player_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 208
+        y: 224
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 2, y: 16.5}
-        - {x: -12, y: -1.5}
-        - {x: -12, y: -23.5}
-        - {x: 4, y: -23.5}
-        - {x: 16, y: -6.5}
-        - {x: 16, y: 16.5}
+      - - {x: 2, y: 40}
+        - {x: -12, y: 22}
+        - {x: -12, y: 0}
+        - {x: 4, y: 0}
+        - {x: 16, y: 17}
+        - {x: 16, y: 40}
     - name: Human_Player_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 208
+        y: 224
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 16, y: 8.5}
-        - {x: 0, y: 14.5}
-        - {x: -2, y: 12.5}
-        - {x: -2, y: 10.5}
-        - {x: -11, y: -1.5}
-        - {x: -16, y: -20.5}
-        - {x: -16, y: -23.5}
-        - {x: -11, y: -23.5}
-        - {x: 2, y: -17.5}
-        - {x: 12, y: -12.5}
-        - {x: 16, y: 0.5}
+      - - {x: 16, y: 32}
+        - {x: 0, y: 38}
+        - {x: -2, y: 36}
+        - {x: -2, y: 34}
+        - {x: -11, y: 22}
+        - {x: -16, y: 3}
+        - {x: -16, y: 0}
+        - {x: -11, y: 0}
+        - {x: 2, y: 6}
+        - {x: 12, y: 11}
+        - {x: 16, y: 24}
     - name: Human_Player_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 208
+        y: 224
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 0, y: 11.5}
-        - {x: -12, y: -2.5}
-        - {x: -12, y: -16.5}
-        - {x: -11, y: -17.5}
-        - {x: -6, y: -17.5}
-        - {x: -3, y: -16.5}
-        - {x: 6, y: -23.5}
-        - {x: 12, y: -23.5}
-        - {x: 16, y: -12.5}
-        - {x: 16, y: 6.5}
-        - {x: 8, y: 11.5}
+      - - {x: 0, y: 35}
+        - {x: -12, y: 21}
+        - {x: -12, y: 7}
+        - {x: -11, y: 6}
+        - {x: -6, y: 6}
+        - {x: -3, y: 7}
+        - {x: 6, y: 0}
+        - {x: 12, y: 0}
+        - {x: 16, y: 11}
+        - {x: 16, y: 30}
+        - {x: 8, y: 35}
     - name: Human_Player_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 208
+        y: 224
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 6, y: 14.5}
-        - {x: -8, y: -1.5}
-        - {x: -11, y: -16.5}
-        - {x: -11, y: -21.5}
-        - {x: -6, y: -23.5}
-        - {x: 11, y: -23.5}
-        - {x: 11, y: 14.5}
+      - - {x: 6, y: 38}
+        - {x: -8, y: 22}
+        - {x: -11, y: 7}
+        - {x: -11, y: 2}
+        - {x: -6, y: 0}
+        - {x: 11, y: 0}
+        - {x: 11, y: 38}
     - name: Human_Player_5
       rect:
         serializedVersion: 2
         x: 160
-        y: 208
+        y: 224
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 9, y: 7.5}
-        - {x: 2, y: 7.5}
-        - {x: -9, y: -3.5}
-        - {x: -13, y: -23.5}
-        - {x: -7, y: -23.5}
-        - {x: 10, y: -15.5}
-        - {x: 15, y: -4.5}
-        - {x: 15, y: 3.5}
+      - - {x: 9, y: 31}
+        - {x: 2, y: 31}
+        - {x: -9, y: 20}
+        - {x: -13, y: 0}
+        - {x: -7, y: 0}
+        - {x: 10, y: 8}
+        - {x: 15, y: 19}
+        - {x: 15, y: 27}
     - name: Human_Player_6
       rect:
         serializedVersion: 2
         x: 192
-        y: 208
+        y: 224
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -6, y: 8.5}
-        - {x: -16, y: 4.5}
-        - {x: -16, y: -23.5}
-        - {x: 12, y: -23.5}
-        - {x: 15, y: -20.5}
-        - {x: 15, y: 7.5}
-        - {x: 13, y: 8.5}
+      - - {x: -6, y: 32}
+        - {x: -16, y: 28}
+        - {x: -16, y: 0}
+        - {x: 12, y: 0}
+        - {x: 15, y: 3}
+        - {x: 15, y: 31}
+        - {x: 13, y: 32}
     - name: Human_Player_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
+        y: 176
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -1, y: 12.5}
-        - {x: -8, y: 4.5}
-        - {x: -10, y: 0.5}
-        - {x: -10, y: -23.5}
-        - {x: 12, y: -23.5}
-        - {x: 12, y: 9.5}
-        - {x: 5, y: 12.5}
+      - - {x: -1, y: 36}
+        - {x: -8, y: 28}
+        - {x: -10, y: 24}
+        - {x: -10, y: 0}
+        - {x: 12, y: 0}
+        - {x: 12, y: 33}
+        - {x: 5, y: 36}
     - name: Human_Player_8
       rect:
         serializedVersion: 2
         x: 32
-        y: 160
+        y: 176
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 0, y: 11.5}
-        - {x: -4, y: 11.5}
-        - {x: -5, y: 8.5}
-        - {x: -13, y: -10.5}
-        - {x: -13, y: -21.5}
-        - {x: -8, y: -23.5}
-        - {x: 3, y: -23.5}
-        - {x: 5, y: -18.5}
-        - {x: 5, y: 9.5}
+      - - {x: 0, y: 35}
+        - {x: -4, y: 35}
+        - {x: -5, y: 32}
+        - {x: -13, y: 13}
+        - {x: -13, y: 2}
+        - {x: -8, y: 0}
+        - {x: 3, y: 0}
+        - {x: 5, y: 5}
+        - {x: 5, y: 33}
     - name: Human_Player_9
       rect:
         serializedVersion: 2
         x: 64
-        y: 160
+        y: 176
         width: 64
         height: 47
-      alignment: 9
-      pivot: {x: 0.33, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 22.879997, y: 11.5}
-        - {x: 4.8799973, y: 11.5}
-        - {x: -2.1200027, y: -4.5}
-        - {x: -2.1200027, y: -12.5}
-        - {x: 0.87999725, y: -12.5}
-        - {x: 4.8799973, y: -8.5}
-        - {x: -0.12000275, y: -14.5}
-        - {x: -2.1200027, y: -20.5}
-        - {x: -2.1200027, y: -23.5}
-        - {x: 23.879997, y: -23.5}
-        - {x: 30.879997, y: -14.5}
-        - {x: 34.879997, y: -1.5}
-        - {x: 34.879997, y: 9.5}
+      - - {x: 12, y: 35}
+        - {x: -6, y: 35}
+        - {x: -13, y: 19}
+        - {x: -13, y: 11}
+        - {x: -10, y: 11}
+        - {x: -6, y: 15}
+        - {x: -11, y: 9}
+        - {x: -13, y: 3}
+        - {x: -13, y: 0}
+        - {x: 13, y: 0}
+        - {x: 20, y: 9}
+        - {x: 24, y: 22}
+        - {x: 24, y: 33}
     - name: Human_Player_11
       rect:
         serializedVersion: 2
         x: 128
-        y: 160
+        y: 176
         width: 65
         height: 47
-      alignment: 9
-      pivot: {x: 0.25, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 38.75, y: 17.5}
-        - {x: 30.75, y: 22.5}
-        - {x: 24.75, y: 22.5}
-        - {x: 10.75, y: 13.5}
-        - {x: 2.75, y: -0.5}
-        - {x: 2.75, y: -23.5}
-        - {x: 31.75, y: -23.5}
-        - {x: 38.75, y: -7.5}
+      - - {x: 22.5, y: 41}
+        - {x: 14.5, y: 46}
+        - {x: 8.5, y: 46}
+        - {x: -5.5, y: 37}
+        - {x: -13.5, y: 23}
+        - {x: -13.5, y: 0}
+        - {x: 15.5, y: 0}
+        - {x: 22.5, y: 16}
     - name: Human_Player_13
       rect:
         serializedVersion: 2
         x: 0
-        y: 112
+        y: 128
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
@@ -324,11 +328,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 33
-        y: 112
+        y: 128
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
@@ -339,11 +343,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 65
-        y: 112
+        y: 128
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
@@ -354,11 +358,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 97
-        y: 112
+        y: 128
         width: 29
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
@@ -369,11 +373,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 129
-        y: 112
+        y: 128
         width: 30
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
@@ -384,11 +388,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 161
-        y: 112
+        y: 128
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
@@ -398,75 +402,76 @@ TextureImporter:
     - name: Human_Player_10
       rect:
         serializedVersion: 2
-        x: 193
-        y: 112
+        x: 194
+        y: 128
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Human_Player_12
       rect:
         serializedVersion: 2
         x: 193
-        y: 159
+        y: 176
         width: 63
-        height: 48
-      alignment: 9
-      pivot: {x: 0.25, y: 0.5}
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 25.25, y: 22}
-        - {x: 2.25, y: 15}
-        - {x: 2.25, y: -24}
-        - {x: 30.25, y: -24}
-        - {x: 30.25, y: 22}
+      - - {x: 9.5, y: 45}
+        - {x: -13.5, y: 38}
+        - {x: -13.5, y: 0}
+        - {x: 13.5, y: 0}
+        - {x: 14.5, y: 15}
+        - {x: 14.5, y: 45}
     - name: Human_Player_19
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 80
         width: 32
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -3, y: 12}
-        - {x: -10, y: 4}
+      - - {x: -3, y: 36}
+        - {x: -10, y: 28}
+        - {x: -12, y: 24}
         - {x: -12, y: 0}
-        - {x: -12, y: -24}
-        - {x: 10, y: -24}
-        - {x: 10, y: 9}
-        - {x: 3, y: 12}
+        - {x: 10, y: 0}
+        - {x: 10, y: 33}
+        - {x: 3, y: 36}
     - name: Human_Player_20
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 80
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 14, y: 2.5}
-        - {x: 9, y: 2.5}
-        - {x: -8, y: -2.5}
-        - {x: -14, y: -16.5}
-        - {x: -14, y: -23.5}
-        - {x: 16, y: -23.5}
-        - {x: 16, y: 0.5}
+      - - {x: 14, y: 26}
+        - {x: 9, y: 26}
+        - {x: -8, y: 21}
+        - {x: -14, y: 7}
+        - {x: -14, y: 0}
+        - {x: 16, y: 0}
+        - {x: 16, y: 24}
     - name: Human_Player_21
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 80
         width: 31
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 0, y: 12}
@@ -480,12 +485,12 @@ TextureImporter:
     - name: Human_Player_22
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 95
+        y: 80
         width: 31
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -3, y: 7}
@@ -498,12 +503,12 @@ TextureImporter:
     - name: Human_Player_23
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 129
+        y: 80
         width: 31
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -15, y: 4}
@@ -516,74 +521,124 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 16
+        y: 33
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Human_Player_25
       rect:
         serializedVersion: 2
         x: 33
-        y: 16
+        y: 33
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Human_Player_26
       rect:
         serializedVersion: 2
         x: 65
-        y: 16
+        y: 33
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Human_Player_27
       rect:
         serializedVersion: 2
         x: 128
-        y: 16
+        y: 32
         width: 32
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 7, y: 16.5}
-        - {x: -6, y: 7.5}
-        - {x: -13, y: -10.5}
-        - {x: -13, y: -21.5}
-        - {x: -12, y: -23.5}
-        - {x: 0, y: -23.5}
-        - {x: 15, y: -7.5}
-        - {x: 15, y: 16.5}
+      - - {x: 7, y: 40}
+        - {x: -6, y: 31}
+        - {x: -13, y: 13}
+        - {x: -13, y: 2}
+        - {x: -12, y: 0}
+        - {x: 0, y: 0}
+        - {x: 15, y: 16}
+        - {x: 15, y: 40}
     - name: Human_Player_28
       rect:
         serializedVersion: 2
-        x: 161
-        y: 16
+        x: 162
+        y: 32
         width: 31
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: Human_Player_29
       rect:
         serializedVersion: 2
-        x: 197
-        y: 16
+        x: 198
+        y: 37
         width: 31
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Human_Player_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 17}
+        - {x: 10, y: 19}
+        - {x: -13, y: 19}
+        - {x: -16, y: 13}
+        - {x: -16, y: 0}
+        - {x: 16, y: 0}
+    - name: Human_Player_31
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 31
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Human_Player_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 31
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Human_Player_33
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 31
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []
