@@ -22,7 +22,7 @@ public class PlatformingController : MonoBehaviour
 	public float knockBackTime = 0.5f;
 	public float knockBackMagnitude = 15.0f;
 
-	public ParticleSystem particleSystem;
+	public ParticleSystem ps;
 
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
@@ -35,6 +35,12 @@ public class PlatformingController : MonoBehaviour
 
 	private Vector3 knockDir;
 	private float lastHitTime;
+
+	public bool jump = false;
+	bool jumpCancel = false;
+	float jumpTime = 0.2f;
+	float jumpTimer = 0f;
+	float cancelCounter = 0;
 
 	void Awake ()
 	{
@@ -101,16 +107,25 @@ public class PlatformingController : MonoBehaviour
 			}
 			//IDLE ANIM
 		} 
-
 		HandleKnockBack ();
+		if (Input.GetKey(KeyCode.UpArrow) && !shapeShifting && !Input.GetKey (KeyCode.DownArrow) && _controller.isGrounded) {
+			jump = true;
+		}
+		if (Input.GetKeyUp (KeyCode.UpArrow)) {
+			jump = false;
+		}
 
 
-		// we can only jump whilst grounded
-		if (_controller.isGrounded && Input.GetKeyDown (KeyCode.UpArrow) && !shapeShifting && !Input.GetKey (KeyCode.DownArrow)) {
-			_velocity.y = Mathf.Sqrt (2f * jumpHeight * -gravity);
-			anim.Play (Animator.StringToHash (playerController.currState.ToString () + "_JUMP"));
+		// Normal jump (full speed)
+		if (jump && jumpTimer < jumpTime)
+		{
+			_velocity.y = Mathf.Sqrt(jumpHeight* -gravity);
 			jumped = true;
-			//JUMP ANIM
+			jumpTimer += Time.deltaTime;
+		}
+			
+		if (_controller.isGrounded && Input.GetKeyDown (KeyCode.UpArrow)) {
+			anim.Play (Animator.StringToHash (playerController.currState.ToString () + "_JUMP"));
 		}
 		if (Input.GetKeyDown (KeyCode.Z) && !attacking && !shapeShifting) {
 			if (playerController.currState == PlayerController.shiftState.WOLF && jumped == false)
@@ -119,25 +134,19 @@ public class PlatformingController : MonoBehaviour
 				StartCoroutine (Attack ());
 		}
 
-
-
 		// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
 		_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
-
 		// apply gravity before moving
 		_velocity.y += gravity * Time.deltaTime;
-
 		// if holding down bump up our movement amount and turn off one way platform detection for a frame.
 		// this lets uf jump down through one way platforms
 		if (_controller.isGrounded && Input.GetKey (KeyCode.DownArrow)) {
-
 			_velocity.y *= 3f;
 			_controller.ignoreOneWayPlatformsThisFrame = true;
 		}
 
 		_controller.move (_velocity * Time.deltaTime);
-
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
 
@@ -152,14 +161,19 @@ public class PlatformingController : MonoBehaviour
 
 
 		if (_controller.isGrounded && jumped == true) {
+			cancelCounter = 0;
+			jump = false;
+			jumpTimer = 0;
 			jumped = false;
 			StartCoroutine (triggerParticles (0));
 		}
 	}
 
 	void Movement(){
+
 		if (Input.GetKey (KeyCode.RightArrow) && !shapeShifting) {
 			normalizedHorizontalSpeed = 1;
+			playerController.stamina += 1*Time.deltaTime;
 			if (transform.localScale.x < 0f)
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
@@ -169,6 +183,7 @@ public class PlatformingController : MonoBehaviour
 			//RUN ANIM
 		} else if (Input.GetKey (KeyCode.LeftArrow) && !shapeShifting) {
 			normalizedHorizontalSpeed = -1;
+			playerController.stamina += 1*Time.deltaTime;
 			if (transform.localScale.x > 0f)
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
@@ -178,7 +193,7 @@ public class PlatformingController : MonoBehaviour
 			//RUN ANIM
 		} else {
 			normalizedHorizontalSpeed = 0;
-
+			playerController.stamina += 3*Time.deltaTime;
 			if (_controller.isGrounded && !attacking && !shapeShifting) {
 				anim.Play (Animator.StringToHash (playerController.currState.ToString () + "_IDLE"));
 
@@ -191,7 +206,7 @@ public class PlatformingController : MonoBehaviour
 	public IEnumerator triggerParticles (float delay)
 	{
 		yield return new WaitForSeconds (delay);
-		particleSystem.Emit (10);
+		ps.Emit (10);
 	}
 
 	IEnumerator Attack ()
@@ -203,6 +218,7 @@ public class PlatformingController : MonoBehaviour
 		if (playerController.currState == PlayerController.shiftState.WOLF) {
 			GetComponent<AudioSource> ().PlayOneShot (playerController.w_atkSound);
 			jumped = true;
+			playerController.stamina -= 10;
 			_velocity.x += (transform.localScale.x * runSpeed * Mathf.Sqrt (2f * playerController.w_chargeAttackSpeed)) - _velocity.x;
 			_velocity.y = Mathf.Sqrt (2f * playerController.w_chargeAttackHeight * -gravity);
 		} else if (playerController.currState == PlayerController.shiftState.HUMAN) {

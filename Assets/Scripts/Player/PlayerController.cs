@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour {
 
 	public enum shiftState{HUMAN,WOLF};
 	public shiftState currState = shiftState.HUMAN;
-	private SpriteRenderer sr;
 	private BoxCollider2D col;
 	private CharacterController2D cc;
 	private PlatformingController pCtrl;
-	private Animator anim;
 	public AudioClip shiftSound;
 	public AudioClip hitSound;
+
+
 
 	[Header("Player Stats")]
 	public float health = 100;
@@ -29,8 +29,9 @@ public class PlayerController : MonoBehaviour {
 	public Image staminaImage;
 	private float sImageInitWidth;
 	private Vector2 sVector= Vector2.zero;
-	public AudioSource audio;
+	new public AudioSource audio;
 
+	public float currDamage;
 
 
 	[Header("Progress Related Variables")]
@@ -41,14 +42,17 @@ public class PlayerController : MonoBehaviour {
 
 	[Header("Human specific variables")]
 	public float h_formSpeed = 25.0f;
+	public float h_damage = 5.0f;
 	public float h_jumpHeight = 3.5f;
 	public AudioClip h_atkSound;
 
 
 	[Header("Wolf specific variables")]
 	public AudioClip w_atkSound;
+	public float w_damage = 10.0f;
 	public float w_formSpeed = 35.0f;
 	public float w_jumpHeight = 2.5f;
+	public float w_chargeAttackCost = 30.0f;
 	public float w_chargeAttackSpeed = 30.0f;
 	public float w_chargeAttackHeight = 1.0f;
 
@@ -61,10 +65,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sr = GetComponent<SpriteRenderer> ();
 		col = GetComponent<BoxCollider2D> ();
 		cc = GetComponent<CharacterController2D> ();
-		anim = GetComponent<Animator> ();
 		pCtrl = GetComponent<PlatformingController> ();
 		audio = GetComponent<AudioSource> ();
 		sImageInitWidth = staminaImage.rectTransform.sizeDelta.x;
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviour {
 
 		}
 
-
+		stamina = Mathf.Clamp (stamina, 0, 100);
 	}
 
 
@@ -119,8 +121,6 @@ public class PlayerController : MonoBehaviour {
 	public IEnumerator Shake() {
 
 		float elapsed = 0.0f;
-
-		Vector3 originalCamPos = Camera.main.transform.position;
 
 		while (elapsed < duration) {
 			Vector3 currCamPos = Camera.main.transform.position;
@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour {
 		if (currState == shiftState.HUMAN) {
 			Camera.main.GetComponent<VignetteAndChromaticAberration> ().chromaticAberration = 100;
 			currState = shiftState.WOLF;
+			currDamage = w_damage;
 			StartCoroutine (pCtrl.ShapeShift ());
 			StartCoroutine (Shake ());
 			audio.PlayOneShot (shiftSound);
@@ -159,6 +160,7 @@ public class PlayerController : MonoBehaviour {
 
 		} else {
 			currState = shiftState.HUMAN;
+			currDamage = h_damage;
 			StartCoroutine (pCtrl.ShapeShift ());
 			Camera.main.GetComponent<VignetteAndChromaticAberration> ().chromaticAberration = 100;
 			StartCoroutine (Shake ());
