@@ -3,7 +3,7 @@ using System.Collections;
 using Prime31;
 using UnityStandardAssets.ImageEffects;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -36,9 +36,13 @@ public class PlayerController : MonoBehaviour {
 
 	[Header("Progress Related Variables")]
 	public bool hasWolfForm = false;
+	public Image w_Image;
 	public bool hasHammer = false;
+	public Image hmr_Image;
 	public bool hasKey = false;
-	public bool hasLightningRod = false;
+	public Image key_Image;
+	public AudioClip pickupSound;
+
 
 	[Header("Human specific variables")]
 	public float h_formSpeed = 25.0f;
@@ -63,6 +67,36 @@ public class PlayerController : MonoBehaviour {
 	public float duration = 0.5f;
 
 
+
+	void onTriggerEnterEvent(Collider2D col){
+		if (col.tag == "WolfPickup") {
+			hasWolfForm = true;
+			audio.PlayOneShot (pickupSound);
+			Destroy (col.gameObject);
+		} else if (col.tag == "HammerPickup") {
+			hasHammer = true;
+			SceneManager.LoadScene (2);
+			audio.PlayOneShot (pickupSound);
+			Destroy (col.gameObject);
+		} else if (col.tag == "KeyPickup") {
+			hasKey = true;
+			audio.PlayOneShot (pickupSound);
+			Destroy (col.gameObject);
+		}else if (col.tag == "HealthPickup") {
+			health += 25;
+			audio.PlayOneShot (pickupSound);
+			Destroy (col.gameObject);
+		}
+
+
+		if(col.tag == "Door" && hasKey){
+			col.BroadcastMessage ("OpenDoor", SendMessageOptions.DontRequireReceiver);
+			hasKey = false;
+		}
+
+
+	}
+
 	// Use this for initialization
 	void Start () {
 		col = GetComponent<BoxCollider2D> ();
@@ -71,27 +105,25 @@ public class PlayerController : MonoBehaviour {
 		audio = GetComponent<AudioSource> ();
 		sImageInitWidth = staminaImage.rectTransform.sizeDelta.x;
 		hImageInitWidth = healthImage.rectTransform.sizeDelta.x;
+		cc.onTriggerEnterEvent += onTriggerEnterEvent;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		hmr_Image.gameObject.SetActive(hasHammer);
+		w_Image.gameObject.SetActive(hasWolfForm);
+		key_Image.gameObject.SetActive(hasKey);
 
 		hVector.x = ((health / 100) * hImageInitWidth) -1;
 		sVector.x = ((stamina / 100) * sImageInitWidth)-1;
 		staminaImage.rectTransform.sizeDelta = sVector;
 		healthImage.rectTransform.sizeDelta = hVector;
 
-		if (currState == shiftState.WOLF) {
-			if (!Physics2D.Raycast (transform.position + Vector3.up, Vector2.up, 0.5f, cc.platformMask)) {
-				if (Input.GetKeyDown (KeyCode.C)) {
-					ChangeState ();
-				}
-			}
-		} else if (currState == shiftState.HUMAN) {
-			if (Input.GetKeyDown (KeyCode.C)) {
-				ChangeState ();
-			}
+
+		if (hasWolfForm) {
+			HandleShift ();
 		}
+
 		if (currState == shiftState.HUMAN) {
 			HumanControls ();
 		} else {
@@ -107,10 +139,28 @@ public class PlayerController : MonoBehaviour {
 		stamina = Mathf.Clamp (stamina, 0, 100);
 	}
 
-
+	void HandleShift(){
+		if (currState == shiftState.WOLF) {
+			if (!Physics2D.Raycast (transform.position + Vector3.up, Vector2.up, 0.5f, cc.platformMask)) {
+				if (Input.GetKeyDown (KeyCode.C)) {
+					ChangeState ();
+				}
+			}
+		} else if (currState == shiftState.HUMAN) {
+			if (Input.GetKeyDown (KeyCode.C)) {
+				ChangeState ();
+			}
+		}
+	}
 
 	void HumanControls(){
+		if (hasHammer) {
 
+		}
+
+		if (hasKey) {
+
+		}
 
 	}
 
@@ -154,7 +204,7 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine (Shake ());
 			audio.PlayOneShot (shiftSound);
 			transform.position = new Vector2 (transform.position.x, transform.position.y);
-			col.size = new Vector2 (1f, 0.7f);
+			col.size = new Vector2 (0.5f, 0.7f);
 			col.offset = new Vector2 (0,0.4f);
 			cc.recalculateDistanceBetweenRays ();
 
@@ -177,6 +227,13 @@ public class PlayerController : MonoBehaviour {
 
 
 	public void TakeDamage(int damage, Transform damagedBy){
+
+		if (health - damage <= 0) {
+			health -= damage;
+			Camera.main.GetComponent<VignetteAndChromaticAberration> ().chromaticAberration = 100;
+			StartCoroutine (pCtrl.KnockBack (damagedBy));
+			StartCoroutine (Die ());
+		}
 		if (!pCtrl.knockedBack) {
 			StartCoroutine (Shake());
 			audio.PlayOneShot (hitSound);
@@ -184,6 +241,18 @@ public class PlayerController : MonoBehaviour {
 			health -= damage;
 			StartCoroutine (pCtrl.KnockBack (damagedBy));
 		}
+	}
+
+
+	public IEnumerator Die(){
+		audio.PlayOneShot (shiftSound);
+		pCtrl.canMove = false;
+		audio.pitch = 1;
+		Time.timeScale = 0.1f;
+		yield return new WaitForSeconds (0.1f);
+		Time.timeScale = 1;
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+
 	}
 		
 }

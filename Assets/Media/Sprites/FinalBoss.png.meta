@@ -1,0 +1,102 @@
+fileFormatVersion: 2
+guid: d3537b6fbe204324696f41aac2f4e7c1
+timeCreated: 1460936862
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FinalBoss_0
+    21300002: FinalBoss_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: FinalBoss_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 89}
+        - {x: -32, y: 45}
+        - {x: -31, y: 41}
+        - {x: -27, y: 38}
+        - {x: -20, y: 38}
+        - {x: -21, y: 38}
+        - {x: -26, y: 34}
+        - {x: -27, y: 31}
+        - {x: -18, y: 5}
+        - {x: 14, y: 5}
+        - {x: 32, y: 18}
+        - {x: 32, y: 80}
+        - {x: 21, y: 89}
+    - name: FinalBoss_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 78}
+        - {x: -14, y: 78}
+        - {x: -30, y: 72}
+        - {x: -30, y: 41}
+        - {x: -12, y: 6}
+        - {x: 13, y: 6}
+        - {x: 29, y: 51}
+        - {x: 29, y: 72}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -128,7 +128,7 @@ public class PlatformingController : MonoBehaviour
 			anim.Play (Animator.StringToHash (playerController.currState.ToString () + "_JUMP"));
 		}
 		if (Input.GetKeyDown (KeyCode.Z) && !attacking && !shapeShifting) {
-			if (playerController.currState == PlayerController.shiftState.WOLF && jumped == false)
+			if (playerController.currState == PlayerController.shiftState.WOLF && jumped == false && playerController.stamina - playerController.w_chargeAttackCost > 0)
 				StartCoroutine (Attack ());
 			else if (playerController.currState == PlayerController.shiftState.HUMAN)
 				StartCoroutine (Attack ());
@@ -251,11 +251,12 @@ public class PlatformingController : MonoBehaviour
 	void HandleKnockBack(){
 		if( knockedBack == true)
 		{
-
-			_velocity += knockDir.normalized * knockBackMagnitude;
+			Vector3 kb = knockDir.normalized * knockBackMagnitude;
+			kb.z = 0;
+			_velocity += kb;
 			if (Time.time > lastHitTime + knockBackTime) {
 				knockedBack = false;
-				CancelInvoke ("FlashSprite");
+				CancelInvoke ();
 				GetComponent<SpriteRenderer> ().enabled = true;
 
 			}
